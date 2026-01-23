@@ -211,6 +211,171 @@
             line-height: 1.6;
         }
 
+        /* Projects Section */
+        .projects-section {
+            padding: 60px 20px;
+            background: var(--bg-alt);
+        }
+
+        .projects-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            color: var(--primary);
+            margin-bottom: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            overflow: hidden;
+            border-left: 4px solid var(--highlight);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .project-header {
+            padding: 30px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            gap: 20px;
+        }
+
+        .project-header-content {
+            flex: 1;
+        }
+
+        .project-header h3 {
+            color: var(--accent);
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .project-brief {
+            color: var(--text);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 1rem;
+        }
+
+        .tech-badge {
+            background: var(--primary);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .expand-icon {
+            color: var(--highlight);
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+            flex-shrink: 0;
+        }
+
+        .project-card.expanded .expand-icon {
+            transform: rotate(180deg);
+        }
+
+        .project-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+        }
+
+        .project-card.expanded .project-details {
+            max-height: 3000px;
+            transition: max-height 0.5s ease-in;
+        }
+
+        .project-details-content {
+            padding: 0 30px 30px;
+            border-top: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .project-section-title {
+            color: var(--accent);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 1.5rem 0 0.8rem;
+        }
+
+        .project-image-placeholder {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border: 2px dashed var(--highlight);
+            border-radius: 8px;
+            padding: 60px 20px;
+            text-align: center;
+            margin: 1.5rem 0;
+            color: var(--text-light);
+        }
+
+        .project-image-placeholder img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 1.5rem 0;
+        }
+
+        .metric-card {
+            background: var(--bg-alt);
+            padding: 20px;
+            border-radius: 6px;
+            text-align: center;
+            border: 2px solid var(--light);
+        }
+
+        .metric-value {
+            color: var(--highlight);
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .metric-label {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .project-description {
+            color: var(--text);
+            line-height: 1.7;
+            margin: 1rem 0;
+        }
+
+        .code-snippet {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            margin: 1rem 0;
+            line-height: 1.5;
+        }
+
         /* Experience Section */
         .experience-section {
             padding: 60px 20px;
@@ -438,7 +603,7 @@
             <div class="contact-info">
                 <span>📞 0762 135 482</span>
                 <span>|</span>
-                <a href="mailto:eden.sorolla@mail.ch">✉ eden.sorolla@mail.ch</a>
+                <a href="/cdn-cgi/l/email-protection#2a4f4e4f44045945584546464b6a474b4346044942">✉ <span class="__cf_email__" data-cfemail="b3d6d7d6dd9dc0dcc1dcdfdfd2f3ded2dadf9dd0db">[email&#160;protected]</span></a>
                 <span>|</span>
                 <span>🏠 Villars-sur-Glâne (FR)</span>
             </div>
@@ -450,7 +615,7 @@
         <div class="container">
             <h2>About Me</h2>
             <div class="bio-content">
-                <p>My first encounter with computers dates back to age 12, when I started programming in BASIC with the help of my uncle—back when screens were green and cathodic tubes were still a thing. From early on, curiosity was my default setting. Although I was interested in many topics, I eventually gravitated toward studying Physics in Valencia (Spain), driven by a desire to understand how Reality actually works.</p>
+                <p>I am a Data Engineer My first encounter with computers dates back to age 12, when I started programming in BASIC with the help of my uncle—back when screens were green and cathodic tubes were still a thing. From early on, curiosity was my default setting. Although I was interested in many topics, I eventually gravitated toward studying Physics in Valencia (Spain), driven by a desire to understand how Reality actually works.</p>
 
                 <p>That curiosity later took me to Lausanne, where I was invited to pursue a PhD at EPFL within the Faculty of Electrical Engineering. There, I had the privilege of working on multi-physics simulation software for safety-critical systems—such as space satellites and particle accelerators—implemented in C, C++, and Fortran, where software bugs are more than just an inconvenience.</p>
 
@@ -491,6 +656,230 @@
                     <p>Tableau, PowerBI, Python (Seaborn, Matplotlib), R (ggplot2)</p>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects-section">
+        <div class="container">
+            <h2>Featured Projects</h2>
+
+            <!-- Project 1: PDF Automation -->
+            <div class="project-card">
+                <div class="project-header" onclick="toggleProject(this)">
+                    <div class="project-header-content">
+                        <h3>Automated PDF Report Generation</h3>
+                        <p class="project-brief">Real-time PDF report generation system using Python, ingesting live data from Airtable via webhooks.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">Airtable</span>
+                            <span class="tech-badge">Webhooks</span>
+                            <span class="tech-badge">PDF Generation</span>
+                        </div>
+                    </div>
+                    <div class="expand-icon">▼</div>
+                </div>
+                <div class="project-details">
+                    <div class="project-details-content">
+                        <h4 class="project-section-title">📊 Architecture Diagram</h4>
+                        <div class="project-image-placeholder">
+                            <!-- Replace this div with your diagram image -->
+                            <p>💡 Add your architecture diagram here:<br>
+                            Airtable → Webhook → Python → PDF Generator → Email/Storage</p>
+                        </div>
+
+                        <h4 class="project-section-title">🎯 Problem & Solution</h4>
+                        <p class="project-description">
+                            <strong>Problem:</strong> Manual report generation was time-consuming and error-prone, taking 2+ hours per week.<br><br>
+                            <strong>Solution:</strong> Implemented an automated pipeline that listens to Airtable webhooks, processes data in real-time, generates formatted PDF reports, and distributes them automatically.
+                        </p>
+
+                        <h4 class="project-section-title">📈 Impact & Metrics</h4>
+                        <div class="metrics-grid">
+                            <div class="metric-card">
+                                <span class="metric-value">100+</span>
+                                <span class="metric-label">Reports Generated</span>
+                            </div>
+                            <div class="metric-card">
+                                <span class="metric-value">8hrs/mo</span>
+                                <span class="metric-label">Time Saved</span>
+                            </div>
+                            <div class="metric-card">
+                                <span class="metric-value">Real-time</span>
+                                <span class="metric-label">Data Updates</span>
+                            </div>
+                        </div>
+
+                        <h4 class="project-section-title">📸 Sample Output</h4>
+                        <div class="project-image-placeholder">
+                            <!-- Add screenshot of generated PDF here -->
+                            <p>📄 Add screenshot of generated PDF report (redacted if needed)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2: R Shiny Image Recognition -->
+            <div class="project-card">
+                <div class="project-header" onclick="toggleProject(this)">
+                    <div class="project-header-content">
+                        <h3>Image Recognition Web Application</h3>
+                        <p class="project-brief">Interactive web app for image recognition using R Shiny with Docker containerization for scalable deployment.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">R</span>
+                            <span class="tech-badge">Shiny</span>
+                            <span class="tech-badge">Docker</span>
+                            <span class="tech-badge">Machine Learning</span>
+                        </div>
+                    </div>
+                    <div class="expand-icon">▼</div>
+                </div>
+                <div class="project-details">
+                    <div class="project-details-content">
+                        <h4 class="project-section-title">🖼️ Application Screenshots</h4>
+                        <div class="project-image-placeholder">
+                            <!-- Add screenshots of Shiny app here -->
+                            <p>📸 Add screenshot of your Shiny app interface</p>
+                        </div>
+
+                        <h4 class="project-section-title">🏗️ Deployment Architecture</h4>
+                        <div class="project-image-placeholder">
+                            <p>💡 Add deployment diagram:<br>
+                            R Shiny App → Docker Container → Cloud Deployment</p>
+                        </div>
+
+                        <h4 class="project-section-title">🎯 Technical Highlights</h4>
+                        <p class="project-description">
+                            Built a production-ready web application combining machine learning capabilities with modern DevOps practices. The application features real-time image processing, containerized deployment for consistency across environments, and an intuitive user interface for non-technical users.
+                        </p>
+
+                        <h4 class="project-section-title">📈 Key Features</h4>
+                        <div class="metrics-grid">
+                            <div class="metric-card">
+                                <span class="metric-value">Dockerized</span>
+                                <span class="metric-label">Containerized Deployment</span>
+                            </div>
+                            <div class="metric-card">
+                                <span class="metric-value">Real-time</span>
+                                <span class="metric-label">Image Processing</span>
+                            </div>
+                            <div class="metric-card">
+                                <span class="metric-value">Interactive</span>
+                                <span class="metric-label">Web Interface</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3: PostgreSQL Reverse Engineering -->
+            <div class="project-card">
+                <div class="project-header" onclick="toggleProject(this)">
+                    <div class="project-header-content">
+                        <h3>Clinical Database Discovery & Documentation</h3>
+                        <p class="project-brief">Reverse-engineered an undocumented PostgreSQL database containing clinical data, creating comprehensive documentation and data lineage mapping.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">PostgreSQL</span>
+                            <span class="tech-badge">SQL</span>
+                            <span class="tech-badge">Data Discovery</span>
+                            <span class="tech-badge">UKBB</span>
+                        </div>
+                    </div>
+                    <div class="expand-icon">▼</div>
+                </div>
+                <div class="project-details">
+                    <div class="project-details-content">
+                        <h4 class="project-section-title">📊 Database Schema Mapping</h4>
+                        <div class="project-image-placeholder">
+                            <!-- Add ER diagram or schema visualization -->
+                            <p>💡 Add your database ER diagram showing discovered relationships</p>
+                        </div>
+
+                        <h4 class="project-section-title">🎯 Challenge & Approach</h4>
+                        <p class="project-description">
+                            <strong>Challenge:</strong> Inherited an undocumented PostgreSQL database with 150+ tables containing critical clinical research data. No data dictionary, no documentation, no clear understanding of relationships.<br><br>
+                            <strong>Approach:</strong> Developed advanced SQL scripts to systematically analyze table structures, foreign key relationships, data patterns, and usage statistics. Created automated documentation and visual schema representations.
+                        </p>
+
+                        <h4 class="project-section-title">📈 Results & Impact</h4>
+                        <div class="metrics-grid">
+                            <div class="metric-card">
+                                <span class="metric-value">150+</span>
+                                <span class="metric-label">Tables Analyzed</span>
+                            </div>
+                            <div class="metric-card">
+                                <span class="metric-value">300%</span>
+                                <span class="metric-label">Data Discovery Increase</span>
+                            </div>
+                            <div class="metric-card">
+                                <span class="metric-value">Complete</span>
+                                <span class="metric-label">Documentation Generated</span>
+                            </div>
+                        </div>
+
+                        <h4 class="project-section-title">💻 Sample SQL Query</h4>
+                        <div class="project-image-placeholder">
+                            <!-- Add a code snippet example -->
+                            <p>💻 Add sample of your reverse-engineering SQL queries</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 4: Dash + PySpark Web App -->
+            <div class="project-card">
+                <div class="project-header" onclick="toggleProject(this)">
+                    <div class="project-header-content">
+                        <h3>Healthcare Data Analytics Dashboard</h3>
+                        <p class="project-brief">High-performance web application using Python Dash and PySpark to extract, aggregate, and visualize large-scale healthcare data.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">Dash</span>
+                            <span class="tech-badge">PySpark</span>
+                            <span class="tech-badge">Big Data</span>
+                        </div>
+                    </div>
+                    <div class="expand-icon">▼</div>
+                </div>
+                <div class="project-details">
+                    <div class="project-details-content">
+                        <h4 class="project-section-title">📊 Dashboard Screenshots</h4>
+                        <div class="project-image-placeholder">
+                            <!-- Add dashboard screenshots -->
+                            <p>📸 Add screenshots of your Dash dashboard</p>
+                        </div>
+
+                        <h4 class="project-section-title">🏗️ Data Pipeline Architecture</h4>
+                        <div class="project-image-placeholder">
+                            <p>💡 Add pipeline diagram:<br>
+                            Database → PySpark Processing → Aggregation → Dash UI → Business Users</p>
+                        </div>
+
+                        <h4 class="project-section-title">🎯 Business Impact</h4>
+                        <p class="project-description">
+                            <strong>Context:</strong> Business analysts at Groupe Mutuel needed real-time access to complex healthcare data for decision-making.<br><br>
+                            <strong>Solution:</strong> Built a scalable web application that processes millions of records using PySpark, presents interactive visualizations through Dash, and replaced manual Excel-based reporting workflows.
+                        </p>
+
+                        <h4 class="project-section-title">📈 Performance & Scale</h4>
+                        <div class="metrics-grid">
+                            <div class="metric-card">
+                                <span class="metric-value">Millions</span>
+                                <span class="metric-label">Records Processed</span>
+                            </div>
+                            <div class="metric-card">
+                                <span class="metric-value">&lt;2 sec</span>
+                                <span class="metric-label">Query Response Time</span>
+                            </div>
+                            <div class="metric-card">
+                                <span class="metric-value">100%</span>
+                                <span class="metric-label">Excel Reports Replaced</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -565,11 +954,31 @@
             </div>
 
             <div class="experience-item">
+                <h3>Data Scientist</h3>
+                <p class="role-company">SITEM-INSEL | Bern</p>
+                <p class="period">Mar 2021 - Aug 2021</p>
+                <ul>
+                    <li>Created and implemented a novel ML classifier in R based on the Dempster-Shafer theory to better quantify uncertainty in model predictions.</li>
+                    <li>Delivered a Cost-Effectiveness Analysis tool with R to evaluate treatment protocols for episodes of Asymptomatic Microscopic Hematuria.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <h3>Digital Facility Specialist</h3>
+                <p class="role-company">SICHH | Fribourg</p>
+                <p class="period">Jan 2021 - Feb 2021</p>
+                <ul>
+                    <li>Developed a Deep Learning prototype with Python (Keras, TensorFlow) to diagnose Alzheimer's disease from brain scan imagery.</li>
+                    <li>Built a Python data pipeline to fully automate the generation of PDF reports containing Covid-19 test results from a MongoDB database.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
                 <h3>Scientific Software Engineer</h3>
                 <p class="role-company">EPFL-CNES | Switzerland-France</p>
                 <p class="period">2008 - 2020</p>
                 <ul>
-                    <li>Developed and implemented complex, high-performance simulation software using C, C++, and Fortran for safety-critical environments, demonstrating expertise in software architecture and engineering.</li>
+                    <li>Developed and implemented multi-physics simulation software in safety-critical environments (Space & Particle Accelerators) using C, C++, and Fortran for institutions including EPFL and CNES.</li>
                 </ul>
             </div>
         </div>
@@ -624,7 +1033,7 @@
         </div>
     </footer>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Add smooth scroll behavior
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -653,11 +1062,16 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.skill-card, .experience-item, .education-card, .link-card').forEach(card => {
+        // Toggle project card expansion
+        function toggleProject(header) {
+            const card = header.closest('.project-card');
+            card.classList.toggle('expanded');
+        }
+
+        document.querySelectorAll('.skill-card, .experience-item, .education-card, .link-card, .project-card').forEach(card => {
             card.style.opacity = '0';
             observer.observe(card);
         });
     </script>
 </body>
-
 </html>
