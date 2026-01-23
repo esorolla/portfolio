@@ -165,6 +165,7 @@
 
         .bio-content p {
             margin-bottom: 1.2rem;
+            text-align: justify;
         }
 
         /* Skills Section */
@@ -478,6 +479,121 @@
             font-size: 0.95rem;
         }
 
+        /* Courses & Certifications Section */
+        .courses-section {
+            padding: 60px 20px;
+            background: var(--bg-alt);
+        }
+
+        .courses-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            color: var(--primary);
+            margin-bottom: 2rem;
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .course-card {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid var(--highlight);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .course-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .course-card h3 {
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            font-size: 1.15rem;
+        }
+
+        .course-card .institution {
+            color: var(--text);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .course-card .period {
+            color: var(--text-light);
+            font-size: 0.85rem;
+        }
+
+        .certifications-intro {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--highlight) 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .certifications-intro h3 {
+            color: white;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .certifications-intro p {
+            color: rgba(255,255,255,0.95);
+            line-height: 1.7;
+        }
+
+        /* Volunteer Section */
+        .volunteer-section {
+            padding: 60px 20px;
+            background: var(--bg);
+        }
+
+        .volunteer-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            color: var(--primary);
+            margin-bottom: 2rem;
+        }
+
+        .volunteer-card {
+            background: var(--bg-alt);
+            padding: 30px;
+            border-radius: 8px;
+            border-left: 4px solid var(--highlight);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .volunteer-card h3 {
+            color: var(--accent);
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .volunteer-card .organization {
+            color: var(--text);
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .volunteer-card .period {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .volunteer-card p {
+            color: var(--text);
+            line-height: 1.7;
+        }
+
         /* Links Section */
         .links-section {
             padding: 60px 20px;
@@ -615,13 +731,11 @@
         <div class="container">
             <h2>About Me</h2>
             <div class="bio-content">
-                <p>I am a Data Engineer My first encounter with computers dates back to age 12, when I started programming in BASIC with the help of my uncle—back when screens were green and cathodic tubes were still a thing. From early on, curiosity was my default setting. Although I was interested in many topics, I eventually gravitated toward studying Physics in Valencia (Spain), driven by a desire to understand how Reality actually works.</p>
+                <p>I am a Data Engineer with a background of over 10 years of experience designing and implementing software to predict and analyze complex multi-physics phenomena. After completing my PhD at EPFL in Electrical Engineering developing simulation software for space satellites and particle accelerators (in C, C++, and Fortran) I spent four years working on CNES-funded projects in France. I pivoted in 2020 to focus my technical skills on data engineering with a particular emphasis on healthcare applications.</p>
 
-                <p>That curiosity later took me to Lausanne, where I was invited to pursue a PhD at EPFL within the Faculty of Electrical Engineering. There, I had the privilege of working on multi-physics simulation software for safety-critical systems—such as space satellites and particle accelerators—implemented in C, C++, and Fortran, where software bugs are more than just an inconvenience.</p>
+                <p>Since then, I have contributed to several initiatives delivering digital solutions that help business analysts and researchers make better decisions by improving the quality, reliability, and availability of their data. I design and implement automated pipelines to extract, transform, and deliver data—turning raw information into something people can actually trust and use.</p>
 
-                <p>I then spent four years on CNES-funded projects in France, continuing to model and develop software to predict the behavior of electronic devices inside satellite payloads while operating in the harsh in-orbit environment. Together, these experiences laid a strong foundation in software architecture, complex numerical algorithms, and professional, client-oriented project management.</p>
-
-                <p>In 2020, I decided to put my technical and managerial skills at the service of data-driven projects, with a particular focus on the healthcare domain. Since then, I have contributed to several initiatives delivering digital solutions that help business analysts and researchers make better decisions by improving both the quality and availability of their data. I have designed and implemented automated pipelines to extract, transform, and deliver data reliably—turning raw data into something people can actually trust and use.</p>
+                <p>Throughout my career, I've developed a holistic approach to data engineering that bridges technical implementation with domain expertise. Whether reverse-engineering complex clinical databases, implementing statistical validations, or architecting scalable pipelines, I believe the most impactful solutions come from understanding the full data lifecycle—from source systems to stakeholder insights. In healthcare particularly, this end-to-end perspective ensures we build solutions that are not just technically sound, but genuinely serve clinical and research needs.</p>
             </div>
         </div>
     </section>
@@ -637,7 +751,7 @@
                 </div>
                 <div class="skill-card">
                     <h3>Databases</h3>
-                    <p>MongoDB, PostgreSQL, MS SQL, MySQL</p>
+                    <p>MongoDB, PostgreSQL, MS SQL, GraphDB</p>
                 </div>
                 <div class="skill-card">
                     <h3>Data Warehousing & Modeling</h3>
@@ -779,10 +893,13 @@
                         <h3>Clinical Database Discovery & Documentation</h3>
                         <p class="project-brief">Reverse-engineered an undocumented PostgreSQL database containing clinical data, creating comprehensive documentation and data lineage mapping.</p>
                         <div class="tech-stack">
+                            <span class="tech-badge">Python</span>
                             <span class="tech-badge">PostgreSQL</span>
                             <span class="tech-badge">SQL</span>
+                            <span class="tech-badge">Graph Database</span>
+                            <span class="tech-badge">Data Modeling</span>
                             <span class="tech-badge">Data Discovery</span>
-                            <span class="tech-badge">UKBB</span>
+                            <span class="tech-badge">Data Protection</span>
                         </div>
                     </div>
                     <div class="expand-icon">▼</div>
@@ -1005,6 +1122,156 @@
         </div>
     </section>
 
+    <!-- Courses & Certifications Section -->
+    <section class="courses-section">
+        <div class="container">
+            <h2>Continuous Learning</h2>
+
+            <div class="courses-grid">
+                <div class="course-card">
+                    <h3>Epidemiology for Public Health</h3>
+                    <p class="institution">Imperial College London</p>
+                    <p class="period">April – July 2021</p>
+                </div>
+
+                <div class="course-card">
+                    <h3>Applied Data Science with Python</h3>
+                    <p class="institution">University of Michigan</p>
+                    <p class="period">Nov 2020 – Jan 2021</p>
+                </div>
+
+                <div class="course-card">
+                    <h3>Specialization of Data Science with R</h3>
+                    <p class="institution">John Hopkins University</p>
+                    <p class="period">May – Aug 2020</p>
+                </div>
+
+                <div class="course-card">
+                    <h3>Bioinformatics Algorithms with Python</h3>
+                    <p class="institution">stepik.org</p>
+                    <p class="period">Sep 2020</p>
+                </div>
+
+                <div class="course-card">
+                    <h3>Handling Biological Data with Python</h3>
+                    <p class="institution">stepik.org</p>
+                    <p class="period">Sep 2020</p>
+                </div>
+            </div>
+
+            <div class="certifications-intro">
+                <h3>Professional Certifications</h3>
+                <p>Beyond formal courses, I hold several professional certifications demonstrating expertise in industry-standard tools and technologies</p>
+            </div>
+
+            <div class="courses-grid">
+                <div class="course-card">
+                    <h3>Apache Spark 3 for Data Engineering</h3>
+                    <p class="institution">Udemy</p>
+                    <p class="period">June 2024</p>
+                </div>
+
+                <div class="course-card">
+                    <h3>Power BI Advanced</h3>
+                    <p class="institution">LinkedIn Learning</p>
+                    <p class="period">Aug 2021</p>
+                </div>
+
+                <div class="course-card">
+                    <h3>Power BI Essential</h3>
+                    <p class="institution">LinkedIn Learning</p>
+                    <p class="period">Aug 2021</p>
+                </div>
+
+                <div class="course-card">
+                    <h3>Applied Machine Learning in Python</h3>
+                    <p class="institution">University of Michigan</p>
+                    <p class="period">Dec 2020</p>
+                </div>
+
+                <div class="course-card">
+                    <h3>Applied Text Mining in Python</h3>
+                    <p class="institution">University of Michigan</p>
+                    <p class="period">Jan 2021</p>
+                </div>
+
+                <div class="course-card">
+                    <h3>Applied Plotting & Data Visualization</h3>
+                    <p class="institution">University of Michigan</p>
+                    <p class="period">Jan 2021</p>
+                </div>
+
+                <div class="course-card">
+                    <h3>Introduction to Data Science in Python</h3>
+                    <p class="institution">University of Michigan</p>
+                    <p class="period">Dec 2020</p>
+                </div>
+
+                <div class="course-card">
+                    <h3>Statistical Inference</h3>
+                    <p class="institution">Johns Hopkins University</p>
+                    <p class="period">July 2020</p>
+                </div>
+
+                <div class="course-card">
+                    <h3>Exploratory Data Analysis</h3>
+                    <p class="institution">Johns Hopkins University</p>
+                    <p class="period">July 2020</p>
+                </div>
+
+                <div class="course-card">
+                    <h3>Reproducible Research</h3>
+                    <p class="institution">Johns Hopkins University</p>
+                    <p class="period">July 2020</p>
+                </div>
+
+                <div class="course-card">
+                    <h3>R Programming</h3>
+                    <p class="institution">Johns Hopkins University</p>
+                    <p class="period">June 2020</p>
+                </div>
+
+                <div class="course-card">
+                    <h3>Practical Machine Learning</h3>
+                    <p class="institution">Johns Hopkins University</p>
+                    <p class="period">Aug 2020</p>
+                </div>
+
+                <div class="course-card">
+                    <h3>Regression Models</h3>
+                    <p class="institution">Johns Hopkins University</p>
+                    <p class="period">Aug 2020</p>
+                </div>
+
+                <div class="course-card">
+                    <h3>Getting and Cleaning Data</h3>
+                    <p class="institution">Johns Hopkins University</p>
+                    <p class="period">July 2020</p>
+                </div>
+
+                <div class="course-card">
+                    <h3>Developing Data Products</h3>
+                    <p class="institution">Johns Hopkins University</p>
+                    <p class="period">Aug 2020</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Volunteer Section -->
+    <section class="volunteer-section">
+        <div class="container">
+            <h2>Community Engagement</h2>
+
+            <div class="volunteer-card">
+                <h3>Firefighter</h3>
+                <p class="organization">Bataillon Sarine | Fribourg, Switzerland</p>
+                <p class="period">2020 – Present</p>
+                <p>Collaborate effectively within a team to resolve high-pressure emergencies, demonstrating reliability, clear communication, and adherence to safety protocols.</p>
+            </div>
+        </div>
+    </section>
+
     <!-- Links Section -->
     <section class="links-section">
         <div class="container">
@@ -1068,7 +1335,7 @@
             card.classList.toggle('expanded');
         }
 
-        document.querySelectorAll('.skill-card, .experience-item, .education-card, .link-card, .project-card').forEach(card => {
+        document.querySelectorAll('.skill-card, .experience-item, .education-card, .course-card, .volunteer-card, .link-card, .project-card').forEach(card => {
             card.style.opacity = '0';
             observer.observe(card);
         });
