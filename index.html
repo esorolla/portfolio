@@ -363,6 +363,7 @@
             color: var(--text);
             line-height: 1.7;
             margin: 1rem 0;
+            text-align: justify;
         }
 
         .code-snippet {
@@ -719,7 +720,7 @@
             <div class="contact-info">
                 <span>📞 0762 135 482</span>
                 <span>|</span>
-                <a href="/cdn-cgi/l/email-protection#2a4f4e4f44045945584546464b6a474b4346044942">✉ <span class="__cf_email__" data-cfemail="b3d6d7d6dd9dc0dcc1dcdfdfd2f3ded2dadf9dd0db">[email&#160;protected]</span></a>
+                <a href="mailto:eden.sorolla@mail.ch">✉ eden.sorolla@mail.ch</a>
                 <span>|</span>
                 <span>🏠 Villars-sur-Glâne (FR)</span>
             </div>
@@ -783,11 +784,12 @@
                 <div class="project-header" onclick="toggleProject(this)">
                     <div class="project-header-content">
                         <h3>Automated PDF Report Generation</h3>
-                        <p class="project-brief">Real-time PDF report generation system using Python, ingesting live data from Airtable via webhooks.</p>
+                        <p class="project-brief">Real-time PDF report generation system using Python, ingesting live data from Airtable via webhooks for the Health Finance department of The Global Fund.</p>
                         <div class="tech-stack">
                             <span class="tech-badge">Python</span>
                             <span class="tech-badge">Airtable</span>
                             <span class="tech-badge">Webhooks</span>
+                            <span class="tech-badge">Azure Functions</span>
                             <span class="tech-badge">PDF Generation</span>
                         </div>
                     </div>
@@ -796,16 +798,16 @@
                 <div class="project-details">
                     <div class="project-details-content">
                         <h4 class="project-section-title">📊 Architecture Diagram</h4>
-                        <div class="project-image-placeholder">
-                            <!-- Replace this div with your diagram image -->
-                            <p>💡 Add your architecture diagram here:<br>
-                            Airtable → Webhook → Python → PDF Generator → Email/Storage</p>
-                        </div>
+                            <!-- The PDF report architecture schema -->
+                            <img src="img/schemas/PDF_report_schema.png"
+                                 alt="PDF report"
+                                 style="width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin: 1.5rem 0;"
+                                 onclick="window.open(this.src, '_blank')">
 
                         <h4 class="project-section-title">🎯 Problem & Solution</h4>
                         <p class="project-description">
-                            <strong>Problem:</strong> Manual report generation was time-consuming and error-prone, taking 2+ hours per week.<br><br>
-                            <strong>Solution:</strong> Implemented an automated pipeline that listens to Airtable webhooks, processes data in real-time, generates formatted PDF reports, and distributes them automatically.
+                            <strong>Problem:</strong> The Global Fund's Health Finance team needed to manually generate Qualitative Adjustment assessment reports for grant-eligible countries fighting HIV, Tuberculosis, and Malaria. With over 10 health finance specialists continuously updating an Airtable database in real-time, the team spent 20+ hours per week manually compiling and formatting reports—a process that was both time-intensive and prone to inconsistencies.<br><br>
+                            <strong>Solution:</strong> Developed an automated pipeline that integrates with Airtable webhooks to capture real-time data updates, dynamically generates formatted PDF reports with current database content, and automatically distributes them to SharePoint for immediate access by the Health Finance department leadership. The solution eliminated manual compilation while ensuring report accuracy and availability.
                         </p>
 
                         <h4 class="project-section-title">📈 Impact & Metrics</h4>
@@ -815,7 +817,7 @@
                                 <span class="metric-label">Reports Generated</span>
                             </div>
                             <div class="metric-card">
-                                <span class="metric-value">8hrs/mo</span>
+                                <span class="metric-value">>80hrs/mo</span>
                                 <span class="metric-label">Time Saved</span>
                             </div>
                             <div class="metric-card">
@@ -825,10 +827,11 @@
                         </div>
 
                         <h4 class="project-section-title">📸 Sample Output</h4>
-                        <div class="project-image-placeholder">
-                            <!-- Add screenshot of generated PDF here -->
-                            <p>📄 Add screenshot of generated PDF report (redacted if needed)</p>
-                        </div>
+                            <!-- Screenshot of generated PDF -->
+                            <img src="/img/GF/PDF_report.png"
+                                 alt="PDF report"
+                                 style="width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin: 1.5rem 0;"
+                                 onclick="window.open(this.src, '_blank')">
                     </div>
                 </div>
             </div>
@@ -838,29 +841,33 @@
                 <div class="project-header" onclick="toggleProject(this)">
                     <div class="project-header-content">
                         <h3>Image Recognition Web Application</h3>
-                        <p class="project-brief">Interactive web app for image recognition using R Shiny with Docker containerization for scalable deployment.</p>
+                        <p class="project-brief">Personal project to build an interactive web app for image recognition using R Shiny with Python scikit-learn and Docker containerization for scalable deployment.</p>
                         <div class="tech-stack">
                             <span class="tech-badge">R</span>
                             <span class="tech-badge">Shiny</span>
                             <span class="tech-badge">Docker</span>
                             <span class="tech-badge">Machine Learning</span>
+                            <span class="tech-badge">Keras</span>
+                            <span class="tech-badge">TensorFlow</span>
                         </div>
                     </div>
                     <div class="expand-icon">▼</div>
                 </div>
                 <div class="project-details">
                     <div class="project-details-content">
-                        <h4 class="project-section-title">🖼️ Application Screenshots</h4>
-                        <div class="project-image-placeholder">
-                            <!-- Add screenshots of Shiny app here -->
-                            <p>📸 Add screenshot of your Shiny app interface</p>
-                        </div>
+                        <h4 class="project-section-title">🖼️ Application Screenshot</h4>
+                            <!-- Screenshot of the Web App -->
+                            <img src="/img/logos/ImageRecognition.png"
+                                 alt="Screenshot of the R Shiny App"
+                                 style="width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin: 1rem 0;"
+                                 onclick="window.open(this.src, '_blank')">
+                                 <!-- /*style="transform: translateX(-30rem) scale(0.5);"> -->
 
                         <h4 class="project-section-title">🏗️ Deployment Architecture</h4>
-                        <div class="project-image-placeholder">
-                            <p>💡 Add deployment diagram:<br>
-                            R Shiny App → Docker Container → Cloud Deployment</p>
-                        </div>
+                            <img src="/img/schemas/ImageRecognition_schema.png"
+                                 alt="Image Recognition architecture diagram"
+                                 style="width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin: 1.5rem 0;"
+                                 onclick="window.open(this.src, '_blank')">
 
                         <h4 class="project-section-title">🎯 Technical Highlights</h4>
                         <p class="project-description">
@@ -882,6 +889,13 @@
                                 <span class="metric-label">Web Interface</span>
                             </div>
                         </div>
+
+                        <h4 class="project-section-title">🔗 GitHub Repository</h4>
+                        <p class="project-description">
+                            This personal project demonstrates the combination of R Shiny as frontend technology with Python scikit-learn package as backend to build a scalable and powerful online application for image recognition. The code is containerized using Docker to fully enable scalability at ease. The full source code, documentation, and setup instructions are available on GitHub:
+                            <a href="https://github.com/esorolla/ImageRecognition" target="_blank" style="color: var(--highlight); text-decoration: none; font-weight: 600;">https://github.com/esorolla/ImageRecognition</a>
+                        </p>
+
                     </div>
                 </div>
             </div>
@@ -896,10 +910,8 @@
                             <span class="tech-badge">Python</span>
                             <span class="tech-badge">PostgreSQL</span>
                             <span class="tech-badge">SQL</span>
-                            <span class="tech-badge">Graph Database</span>
                             <span class="tech-badge">Data Modeling</span>
                             <span class="tech-badge">Data Discovery</span>
-                            <span class="tech-badge">Data Protection</span>
                         </div>
                     </div>
                     <div class="expand-icon">▼</div>
@@ -993,6 +1005,61 @@
                                 <span class="metric-label">Excel Reports Replaced</span>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 5: SBB Traffic Monitor -->
+            <div class="project-card">
+                <div class="project-header" onclick="toggleProject(this)">
+                    <div class="project-header-content">
+                        <h3>SBB Traffic Disruption Monitor</h3>
+                        <p class="project-brief">Personal project to automate monitoring system for Swiss Federal Railways network disruptions with real-time email notifications and state tracking.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">GraphQL API</span>
+                            <span class="tech-badge">SMTP</span>
+                            <span class="tech-badge">JSON</span>
+                            <span class="tech-badge">Automation</span>
+                        </div>
+                    </div>
+                    <div class="expand-icon">▼</div>
+                </div>
+                <div class="project-details">
+                    <div class="project-details-content">
+                        <h4 class="project-section-title">🏗️ System Architecture</h4>
+                        <div class="project-image-placeholder">
+                            <p>💡 Architecture flow:<br>
+                            SBB GraphQL API → Python Script → State Comparison → SMTP Email → User Notifications</p>
+                        </div>
+
+                        <h4 class="project-section-title">🎯 Problem & Solution</h4>
+                        <p class="project-description">
+                            <strong>Problem:</strong> Need for real-time awareness of Swiss railway disruptions affecting daily commute in the Geneva region, without manually checking the SBB website multiple times per day.<br><br>
+                            <strong>Solution:</strong> Built an automated Python script that queries the SBB GraphQL API, tracks changes between runs using JSON state management, and sends HTML email notifications only when new disruptions occur or existing ones are resolved. Deployed on PythonAnywhere with scheduled execution twice daily.
+                        </p>
+
+                        <h4 class="project-section-title">📈 Technical Highlights</h4>
+                        <div class="metrics-grid">
+                            <div class="metric-card">
+                                <span class="metric-value">Real-time</span>
+                                <span class="metric-label">API Monitoring</span>
+                            </div>
+                            <div class="metric-card">
+                                <span class="metric-value">Automated</span>
+                                <span class="metric-label">Email Alerts</span>
+                            </div>
+                            <div class="metric-card">
+                                <span class="metric-value">State Tracking</span>
+                                <span class="metric-label">Change Detection</span>
+                            </div>
+                        </div>
+
+                        <h4 class="project-section-title">🔗 GitHub Repository</h4>
+                        <p class="project-description">
+                            This personal project demonstrates API integration, automation, and practical problem-solving. The full source code, documentation, and setup instructions are available on GitHub:
+                            <a href="https://github.com/esorolla/sbb-traffic-monitor" target="_blank" style="color: var(--highlight); text-decoration: none; font-weight: 600;">github.com/esorolla/sbb-traffic-monitor</a>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -1095,7 +1162,7 @@
                 <p class="role-company">EPFL-CNES | Switzerland-France</p>
                 <p class="period">2008 - 2020</p>
                 <ul>
-                    <li>Developed and implemented multi-physics simulation software in safety-critical environments (Space & Particle Accelerators) using C, C++, and Fortran for institutions including EPFL and CNES.</li>
+                    <li>Developed and implemented multi-physics simulation software in safety-critical environments (Space & Particle Accelerators) using C, C++, and Fortran for institutions including EPFL, CERN and CNES.</li>
                 </ul>
             </div>
         </div>
