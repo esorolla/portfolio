@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Recognition Web Application Pipeline</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: white;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .architecture-diagram {
+            max-width: 1600px;
+            width: 100%;
+            padding: 40px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .diagram-title {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #1a1a2e;
+            margin-bottom: 40px;
+        }
+
+        .flow-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .component {
+            flex: 1;
+            background: #f8f9fa;
+            border: 3px solid #3282b8;
+            border-radius: 12px;
+            padding: 25px 15px;
+            text-align: center;
+            min-height: 220px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s;
+        }
+
+        .component:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(50, 130, 184, 0.2);
+        }
+
+        .component-icon {
+            width: 90px;
+            height: 90px;
+            object-fit: contain;
+            margin-bottom: 15px;
+        }
+
+        .icon-crop {
+            width: 130px;
+            height: 45px;
+            overflow: hidden;
+            margin-bottom: 15px;
+            margin-top: -10px;
+        }
+
+        .component-icon2 {
+            width: 130px;
+            height: auto;
+            transform: translateY(0px); /* shifts image UP -> crops bottom */
+        }
+
+        /* Logo placeholder styling */
+        .logo-placeholder {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: 2px dashed #ffffff;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 11px;
+            font-weight: bold;
+            text-align: center;
+            padding: 5px;
+            margin-bottom: 15px;
+        }
+
+        .component-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 10px;
+        }
+
+        .component-subtitle {
+            font-size: 14px;
+            color: #636e72;
+            line-height: 1.5;
+            width: 150px
+        }
+
+        .arrow {
+            flex: 0 0 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .arrow-line {
+            width: 90px;
+            height: 4px;
+            background: linear-gradient(to right, #3282b8, #0f4c75);
+            position: relative;
+            border-radius: 2px;
+        }
+
+        .arrow-line::after {
+            content: '';
+            position: absolute;
+            right: -8px;
+            top: -6px;
+            width: 0;
+            height: 0;
+            border-left: 14px solid #0f4c75;
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+        }
+
+        .arrow-label {
+            font-size: 12px;
+            color: #0f4c75;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .diagram-footer {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 2px dashed #bbe1fa;
+            font-size: 14px;
+            color: #636e72;
+            font-style: italic;
+        }
+
+        .time-indicator {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            font-size: 12px;
+            color: #0f4c75;
+            font-weight: 500;
+        }
+
+        .instructions strong {
+            color: #856404;
+            font-size: 14px;
+        }
+
+        .instructions p {
+            margin: 5px 0 0 0;
+            font-size: 12px;
+            color: #856404;
+        }
+    </style>
+</head>
+<body>
+    <div class="architecture-diagram">
+
+        <div class="diagram-title">Image Recognition Web Application Pipeline</div>
+
+        <div class="flow-container">
+            <!-- Component 1: Google Quick Draw Dataset -->
+            <div class="component">
+                <img src="/img/logos/quickdraw.webp"
+                     class="component-icon"
+                     alt="Google Quick Draw"
+                     style="transform: scale(1.5);">
+                <div class="component-title">Images Dataset</div>
+                <div class="component-subtitle">Google Creative Lab<br>50M Images across 345+ Categories</div>
+            </div>
+
+            <!-- Arrow 1 -->
+            <div class="arrow">
+                <div class="arrow-label">Download Data</div>
+                <div class="arrow-line"></div>
+            </div>
+
+            <!-- Component 2: Python Data Processing -->
+            <div class="component">
+                <img src="/img/logos/python.png"
+                     class="component-icon"
+                     alt="Python"
+                    style="transform: scale(0.8);">
+                <div class="component-title">Python</div>
+                <div class="component-subtitle">Data retrieval<br>Image Processing</div>
+            </div>
+
+            <!-- Arrow 2 -->
+            <div class="arrow">
+                <div class="arrow-label">Prepare Dataset</div>
+                <div class="arrow-line"></div>
+            </div>
+
+            <!-- Component 3: R + Keras/TensorFlow Training -->
+            <div class="component">
+                <img src="/img/logos/R.jpg" class="component-icon" alt="R Language">
+                <div class="icon-crop">
+                    <img src="/img/logos/TensorFlowKeras.webp"
+                         class="component-icon2"
+                         alt="TensorFlowKeras">
+                </div>
+                <div class="component-title">Model Training</div>
+                <div class="component-subtitle">R + TensorFlow + Keras<br>Deep Learning</div>
+            </div>
+
+            <!-- Arrow 3 -->
+            <div class="arrow">
+                <div class="arrow-label">Deploy Model</div>
+                <div class="arrow-line"></div>
+            </div>
+
+            <!-- Component 4: R Shiny Web App -->
+            <div class="component">
+                <img src="/img/logos/Shiny.png"
+                     class="component-icon"
+                     alt="R Shiny"
+                     style="transform: scale(2.2);">
+                <div class="component-title">Shiny Web App</div>
+                <div class="component-subtitle">Interactive Canvas<br>Real-time Interface</div>
+            </div>
+
+            <!-- Arrow 4 -->
+            <div class="arrow">
+                <div class="arrow-label">User Drawing</div>
+                <div class="arrow-line"></div>
+            </div>
+
+            <!-- Component 5: Prediction Result -->
+            <div class="component">
+                <!-- This one can use an SVG icon -->
+                <svg class="component-icon" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <!-- AI Brain/Prediction icon -->
+                    <circle cx="100" cy="100" r="100" fill="#4CAF50" opacity="0.2"/>
+                    <circle cx="100" cy="100" r="70" fill="#4CAF50" opacity="0.4"/>
+                    <path d="M 60 100 L 100 60 L 140 100 L 100 140 Z" fill="#4CAF50"/>
+                    <circle cx="100" cy="100" r="20" fill="white"/>
+                    <text x="100" y="108" text-anchor="middle" style="font-family: Arial; font-size: 24px; font-weight: bold; fill: #4CAF50;">✓</text>
+                </svg>
+                <div class="component-title">Prediction</div>
+                <div class="component-subtitle">Object Recognition<br>Confidence Score</div>
+            </div>
+        </div>
+
+        <div class="diagram-footer">
+            End-to-end ML pipeline: from raw data collection to interactive web application
+            <div class="time-indicator">
+                <span>🎨 User draws on canvas</span>
+                <span>🤖 Instant AI prediction</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

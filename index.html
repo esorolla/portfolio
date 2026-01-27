@@ -1,7 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <base href="/portfolio/">
+    <base href="/portfolio/" id="base-tag">
+    <script>
+        // Auto-detect environment and adjust base href
+        if (window.location.hostname === 'localhost' ||
+            window.location.hostname === '127.0.0.1' ||
+            window.location.protocol === 'file:') {
+            document.getElementById('base-tag').remove();
+        }
+    </script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -928,21 +936,27 @@
                 <div class="project-details">
                     <div class="project-details-content">
                         <h4 class="project-section-title">📊 Database Schema Mapping</h4>
-                        <div class="project-image-placeholder">
-                            <!-- Add ER diagram or schema visualization -->
-                            <p>💡 Add your database ER diagram showing discovered relationships</p>
-                        </div>
+                        <a href="clinical_db_detail.html" style="display: block; cursor: pointer;">
+                            <img src="img/schemas/Clinical_db_schema.svg"
+                                 alt="Clinical Database Discovery Schema"
+                                 style="width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin: 1.5rem 0; transition: transform 0.3s;"
+                                 onmouseover="this.style.transform='scale(1.02)'"
+                                 onmouseout="this.style.transform='scale(1)'">
+                        </a>
+                        <p style="text-align: center; color: #636e72; font-size: 0.9rem; margin-top: -1rem;">
+                            📖 Click schema to view detailed technical documentation →
+                        </p>
 
                         <h4 class="project-section-title">🎯 Challenge & Approach</h4>
                         <p class="project-description">
-                            <strong>Challenge:</strong> Inherited an undocumented PostgreSQL database with 150+ tables containing critical clinical research data. No data dictionary, no documentation, no clear understanding of relationships.<br><br>
+                            <strong>Challenge:</strong> Inherited an undocumented PostgreSQL database with 30+ tables containing critical clinical research data. No data dictionary, no documentation, no clear understanding of relationships.<br><br>
                             <strong>Approach:</strong> Developed advanced SQL scripts to systematically analyze table structures, foreign key relationships, data patterns, and usage statistics. Created automated documentation and visual schema representations.
                         </p>
 
                         <h4 class="project-section-title">📈 Results & Impact</h4>
                         <div class="metrics-grid">
                             <div class="metric-card">
-                                <span class="metric-value">150+</span>
+                                <span class="metric-value">30+</span>
                                 <span class="metric-label">Tables Analyzed</span>
                             </div>
                             <div class="metric-card">
@@ -955,11 +969,19 @@
                             </div>
                         </div>
 
-                        <h4 class="project-section-title">💻 Sample SQL Query</h4>
-                        <div class="project-image-placeholder">
-                            <!-- Add a code snippet example -->
-                            <p>💻 Add sample of your reverse-engineering SQL queries</p>
-                        </div>
+                        <h4 class="project-section-title">💻 Technical Implementation</h4>
+                        <p class="project-description">
+                            The solution uses two PostgreSQL functions working together: a main wrapper that scans
+                            database records, and a recursive core that traverses unknown JSON structures to build
+                            complete key paths. The functions return three-part tuples: (patient_id, case_id, json_path).
+                        </p>
+                        <p style="text-align: center; margin-top: 1.5rem;">
+                            <a href="clinical_db_detail.html"
+                               style="display: inline-block; background: #0f4c75; color: white; padding: 12px 24px;
+                                      border-radius: 5px; text-decoration: none; font-weight: 600; transition: background 0.3s;">
+                                View Complete Code & Documentation →
+                            </a>
+                        </p>
                     </div>
                 </div>
             </div>
