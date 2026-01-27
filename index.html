@@ -999,7 +999,7 @@
                 <div class="project-header" onclick="toggleProject(this)">
                     <div class="project-header-content">
                         <h3>Healthcare Data Analytics Dashboard</h3>
-                        <p class="project-brief">High-performance web application using Python Dash and PySpark to extract, aggregate, and visualize large-scale healthcare data.</p>
+                        <p class="project-brief">High-performance web application using Python Dash and PySpark to extract, aggregate, and visualize large-scale healthcare data to enhance customers' experience.</p>
                         <div class="tech-stack">
                             <span class="tech-badge">Python</span>
                             <span class="tech-badge">Dash</span>
@@ -1012,21 +1012,20 @@
                 <div class="project-details">
                     <div class="project-details-content">
                         <h4 class="project-section-title">📊 Dashboard Screenshots</h4>
-                        <div class="project-image-placeholder">
-                            <!-- Add dashboard screenshots -->
-                            <p>📸 Add screenshots of your Dash dashboard</p>
-                        </div>
+                            <img src="img/GM/PDT_screenshot.png"
+                                 alt="Healthcare Data Analystics Dashboard screenshot"
+                                 style="width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin: 1.5rem 0;"
+                                 onclick="window.open(this.src, '_blank')">
 
                         <h4 class="project-section-title">🏗️ Data Pipeline Architecture</h4>
-                        <div class="project-image-placeholder">
-                            <p>💡 Add pipeline diagram:<br>
-                            Database → PySpark Processing → Aggregation → Dash UI → Business Users</p>
-                        </div>
+                        <img src="img/schemas/healthcare_dashboard_architecture.svg"
+                             alt="Healthcare Analytics Dashboard Architecture"
+                             style="width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin: 1.5rem 0;">
 
                         <h4 class="project-section-title">🎯 Business Impact</h4>
                         <p class="project-description">
-                            <strong>Context:</strong> Business analysts at Groupe Mutuel needed real-time access to complex healthcare data for decision-making.<br><br>
-                            <strong>Solution:</strong> Built a scalable web application that processes millions of records using PySpark, presents interactive visualizations through Dash, and replaced manual Excel-based reporting workflows.
+                            <strong>Context:</strong> Business analysts at Groupe Mutuel needed real-time access to the health pathways of customers to analyze both the prevalence and chronological order of clinical interventions from the pool of customers' data.<br><br>
+                            <strong>Solution:</strong> Built a scalable web application that processes millions of records using PySpark, presents aggregated customers' data visualizations through Dash, and replaced manual Excel-based reporting workflows to facilitate real-time analysis.
                         </p>
 
                         <h4 class="project-section-title">📈 Performance & Scale</h4>
@@ -1036,7 +1035,7 @@
                                 <span class="metric-label">Records Processed</span>
                             </div>
                             <div class="metric-card">
-                                <span class="metric-value">&lt;2 sec</span>
+                                <span class="metric-value">&lt;1 min</span>
                                 <span class="metric-label">Query Response Time</span>
                             </div>
                             <div class="metric-card">
