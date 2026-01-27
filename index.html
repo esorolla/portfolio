@@ -874,11 +874,19 @@
                 <div class="project-details">
                     <div class="project-details-content">
                         <h4 class="project-section-title">🖼️ Application Screenshot</h4>
+                        <a href="https://shiny-app-151314882530.europe-west6.run.app/" style="display: block; cursor: pointer;">
                             <!-- Screenshot of the Web App -->
-                            <img src="img/logos/ImageRecognition.png"
+                            <img src="img/personal/ImageRecognition_sc.png"
                                  alt="Screenshot of the R Shiny App"
-                                 style="width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin: 1rem 0;"
-                                 onclick="window.open(this.src, '_blank')">
+                                 style="width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin: 1rem 0;
+                                 transition: transform 0.3s;"
+                                 onmouseover="this.style.transform='scale(1.02)'"
+                                 onmouseout="this.style.transform='scale(1)'">
+                        </a>
+
+                        <p style="text-align: center; color: #636e72; font-size: 0.9rem; margin-top: -1rem;">
+                            📖 Click screenshot to go to Web App in live →
+                        </p>
 
                         <h4 class="project-section-title">🏗️ Deployment Architecture</h4>
                             <img src="img/schemas/ImageRecognition_schema.png"
