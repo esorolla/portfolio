@@ -61,28 +61,28 @@
 
   <!-- Layer 2: PostgreSQL Recursive Function -->
   <g id="function">
-    <rect x="420" y="120" width="360" height="200" rx="8" fill="url(#cardGrad)" filter="url(#shadow)" stroke="#3282b8" stroke-width="3"/>
+    <rect x="420" y="120" width="390" height="200" rx="8" fill="url(#cardGrad)" filter="url(#shadow)" stroke="#3282b8" stroke-width="3"/>
     <text x="600" y="150" font-family="Work Sans, sans-serif" font-size="18" font-weight="600" fill="#0f4c75" text-anchor="middle">
       🔄 Recursive PostgreSQL Function
     </text>
 
     <!-- Function steps -->
-    <rect x="440" y="165" width="320" height="30" rx="4" fill="#bbe1fa" opacity="0.3"/>
+    <rect x="440" y="165" width="350" height="30" rx="4" fill="#bbe1fa" opacity="0.3"/>
     <text x="450" y="185" font-family="Work Sans, sans-serif" font-size="12" fill="#1a1a2e">
-      Step 1: Scan all records in table
+      Step 1: Scan the relevant table with the JSON column "content"
     </text>
 
-    <rect x="440" y="200" width="320" height="30" rx="4" fill="#bbe1fa" opacity="0.5"/>
+    <rect x="440" y="200" width="350" height="30" rx="4" fill="#bbe1fa" opacity="0.5"/>
     <text x="450" y="220" font-family="Work Sans, sans-serif" font-size="12" fill="#1a1a2e">
       Step 2: For each record, traverse JSON recursively
     </text>
 
-    <rect x="440" y="235" width="320" height="30" rx="4" fill="#bbe1fa" opacity="0.7"/>
+    <rect x="440" y="235" width="350" height="30" rx="4" fill="#bbe1fa" opacity="0.7"/>
     <text x="450" y="255" font-family="Work Sans, sans-serif" font-size="12" fill="#1a1a2e">
       Step 3: Build JSON path when match found
     </text>
 
-    <rect x="440" y="270" width="320" height="30" rx="4" fill="#3282b8"/>
+    <rect x="440" y="270" width="350" height="30" rx="4" fill="#3282b8"/>
     <text x="450" y="290" font-family="Work Sans, sans-serif" font-size="12" fill="#ffffff">
       Step 4: Return (patnr, fallnr, path) tuple
     </text>

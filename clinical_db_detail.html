@@ -42,6 +42,10 @@
             background: var(--bg);
         }
 
+        p {
+            text-align: justify;
+        }
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -292,7 +296,7 @@
             <h2>Project Overview</h2>
             <p class="project-description">
                 This project tackled the challenge of an undocumented PostgreSQL database containing critical clinical research data
-                across 150+ tables with complex nested JSON structures. The solution: a pair of recursive PostgreSQL functions that
+                across 30+ tables with complex nested JSON structures. The solution: a pair of recursive PostgreSQL functions that
                 automatically discover which patients have specific data and reveal where in the unknown JSON schemas it's located.
             </p>
         </section>
@@ -399,7 +403,7 @@ $$ <span style="color: #569cd6;">LANGUAGE</span> plpgsql;</code></pre>
                 <h4 style="color: var(--accent); margin-top: 0;">🔄 How They Work Together</h4>
                 <ol>
                     <li><strong>Physician's question:</strong> "Which patients have mechanical ventilation documented?"</li>
-                    <li><strong>Main function</strong> scans through all records, extracting JSONB columns</li>
+                    <li><strong>Main function</strong> scans through all records, extracting JSONB columns.</li>
                     <li><strong>For each record,</strong> the recursive function traverses the JSON:
                         <ul>
                             <li>Objects → recurse into key-value pairs, building paths like <code style="color: #000000;">.procedures.ventilation</code></li>
@@ -407,8 +411,8 @@ $$ <span style="color: #569cd6;">LANGUAGE</span> plpgsql;</code></pre>
                             <li>Strings → compare with search term</li>
                         </ul>
                     </li>
-                    <li><strong>When match found:</strong> Returns (patnr, fallnr, path) tuple</li>
-                    <li><strong>Result:</strong> Complete list of all matching patients with precise data locations</li>
+                    <li><strong>When match found:</strong> Returns (patnr, fallnr, path) tuple.</li>
+                    <li><strong>Result:</strong> Complete list of all matching patients with precise data locations.</li>
                 </ol>
             </div>
         </section>
@@ -431,9 +435,9 @@ $$ <span style="color: #569cd6;">LANGUAGE</span> plpgsql;</code></pre>
 
             <h4>The Three Essential Pieces</h4>
             <ol>
-                <li><strong>patnr (Patientennummer):</strong> Identifies WHICH patient has the data</li>
-                <li><strong>fallnr (Fallnummer):</strong> Identifies WHICH specific case or admission</li>
-                <li><strong>path:</strong> Reveals WHERE in the JSON structure the data is stored</li>
+                <li><strong>patnr (Patientennummer):</strong> Identifies WHICH patient has the data.</li>
+                <li><strong>fallnr (Fallnummer):</strong> Identifies WHICH specific case or admission.</li>
+                <li><strong>path:</strong> Reveals WHERE in the JSON structure the data is stored.</li>
             </ol>
 
             <p class="project-description">
@@ -493,12 +497,12 @@ $$ <span style="color: #569cd6;">LANGUAGE</span> plpgsql;</code></pre>
 
             <h4>Key Technical Features</h4>
             <ul>
-                <li><strong>Recursive Algorithm:</strong> Handles arbitrary JSON nesting depth</li>
-                <li><strong>Type-Safe Traversal:</strong> Correctly handles objects, arrays, strings, numbers, booleans, and nulls</li>
-                <li><strong>Dynamic SQL:</strong> Parameterized queries prevent SQL injection</li>
+                <li><strong>Recursive Algorithm:</strong> Handles arbitrary JSON nesting depth.</li>
+                <li><strong>Type-Safe Traversal:</strong> Correctly handles objects, arrays, strings, numbers, booleans, and nulls.</li>
+                <li><strong>Dynamic SQL:</strong> Parameterized queries prevent SQL injection.</li>
                 <li><strong>Path Construction:</strong> Builds readable JSON paths (e.g., <code style="color: #000000;">.procedures[0].ventilation.mode</code>)</li>
-                <li><strong>Pattern Matching:</strong> Uses ILIKE for flexible, case-insensitive searching</li>
-                <li><strong>Error Handling:</strong> Gracefully skips problematic records to continue discovery</li>
+                <li><strong>Pattern Matching:</strong> Uses ILIKE for flexible, case-insensitive searching.</li>
+                <li><strong>Error Handling:</strong> Gracefully skips problematic records to continue discovery.</li>
             </ul>
         </section>
 
@@ -526,9 +530,9 @@ $$ <span style="color: #569cd6;">LANGUAGE</span> plpgsql;</code></pre>
             </div>
 
             <p class="project-description">
-                <strong>Business Value:</strong> Enabled clinical researchers to conduct studies that were previously impossible
+                <strong>Business Value:</strong> <p>Enabled clinical researchers to conduct studies that were previously impossible
                 due to lack of database documentation. The function transformed months of manual exploration into automated,
-                repeatable queries, directly supporting critical healthcare research at UKBB (Universitätsspital Basel).
+                repeatable queries, directly supporting critical healthcare research at UKBB (Universitätsspital Basel).</p>
             </p>
         </section>
 

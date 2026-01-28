@@ -1052,7 +1052,7 @@
                 <div class="project-header" onclick="toggleProject(this)">
                     <div class="project-header-content">
                         <h3>SBB Traffic Disruption Monitor</h3>
-                        <p class="project-brief">Personal project to automate monitoring system for Swiss Federal Railways network disruptions with real-time email notifications and state tracking.</p>
+                        <p class="project-brief">Personal project to automate a monitoring system for Swiss Federal Railways network disruptions with real-time email notifications and state tracking.</p>
                         <div class="tech-stack">
                             <span class="tech-badge">Python</span>
                             <span class="tech-badge">GraphQL API</span>
@@ -1066,15 +1066,15 @@
                 <div class="project-details">
                     <div class="project-details-content">
                         <h4 class="project-section-title">🏗️ System Architecture</h4>
-                        <div class="project-image-placeholder">
-                            <p>💡 Architecture flow:<br>
-                            SBB GraphQL API → Python Script → State Comparison → SMTP Email → User Notifications</p>
-                        </div>
+                        <img src="img/schemas/sbb_monitor_architecture.svg"
+                             alt="SBB Traffic Monitor Architecture"
+                             style="width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin: 1.5rem 0;"
+                             onclick="window.open(this.src, '_blank')">
 
                         <h4 class="project-section-title">🎯 Problem & Solution</h4>
                         <p class="project-description">
-                            <strong>Problem:</strong> Need for real-time awareness of Swiss railway disruptions affecting daily commute in the Geneva region, without manually checking the SBB website multiple times per day.<br><br>
-                            <strong>Solution:</strong> Built an automated Python script that queries the SBB GraphQL API, tracks changes between runs using JSON state management, and sends HTML email notifications only when new disruptions occur or existing ones are resolved. Deployed on PythonAnywhere with scheduled execution twice daily.
+                            <strong>Problem:</strong> Need for real-time awareness of Swiss railway disruptions affecting daily commute in the French part of Switzerland, without manually checking the SBB website multiple times per day.<br><br>
+                            <strong>Solution:</strong> Built an automated Python script that queries the SBB GraphQL API, tracks changes between runs using JSON state management and sends HTML email notifications only when new disruptions occur or existing ones are resolved. Deployed on PythonAnywhere with scheduled execution one hour before planned trips to anticipate issues.
                         </p>
 
                         <h4 class="project-section-title">📈 Technical Highlights</h4>
