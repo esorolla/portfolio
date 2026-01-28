@@ -323,7 +323,7 @@
             color: var(--accent);
             font-size: 1.1rem;
             font-weight: 600;
-            margin: 1.5rem 0 0.8rem;
+            margin: 1rem 0 0.5rem;
         }
 
         .project-image-placeholder {
@@ -709,6 +709,114 @@
                 print-color-adjust: exact;
             }
         }
+
+        /* Image Carousel */
+        /* 3D Carousel */
+        .carousel-3d-container {
+            display: grid;
+            place-items: center;
+            height: 500px;
+            position: relative;
+            margin: 0rem 0;
+            background-image: radial-gradient(circle at 50% 50%, #f8f9fa 30%, transparent 40%);
+            overflow: hidden;
+        }
+
+        .carousel-3d {
+            transform: perspective(1000px) rotateX(70deg);
+            transform-style: preserve-3d;
+            display: grid;
+            position: absolute;
+            place-items: center;
+            animation: rotate-3d 30s linear infinite;
+            transition: all 1s;
+        }
+
+        .carousel-3d:hover {
+            animation-play-state: paused;
+        }
+
+        .carousel-3d .card-back {
+            display: grid;
+            place-items: center;
+            width: 450px;
+            height: 320px;
+            background-color: #ddd;
+            position: absolute;
+            border-radius: 8px;
+        }
+
+        .carousel-3d .card {
+            display: grid;
+            place-items: center;
+            width: 450px;
+            height: 0px;
+            background-color: #ddd;
+            position: absolute;
+            box-shadow: 0 0 30px rgba(0,0,0,0.3);
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .carousel-3d .card .img {
+            width: 300px;
+            height: 300px;
+            border-radius: 5px;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            filter: brightness(0.95);
+            transform: translateY(100px) scale(1.5);
+        }
+
+        .carousel-3d .card p {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        /* Position cards in circle - 4 cards */
+        .carousel-3d .c1 {
+            transform: rotateZ(0deg) rotateX(90deg) translateY(370px) translateZ(350px) rotateZ(180deg);
+        }
+        .carousel-3d .cb1 {
+            transform: rotateZ(0deg) rotateX(90deg) translateY(120px) translateZ(349px);
+        }
+
+        .carousel-3d .c2 {
+            transform: rotateZ(90deg) rotateX(90deg) translateY(370px) translateZ(350px) rotateZ(180deg);
+        }
+        .carousel-3d .cb2 {
+            transform: rotateZ(90deg) rotateX(90deg) translateY(120px) translateZ(349px);
+        }
+
+        .carousel-3d .c3 {
+            transform: rotateZ(180deg) rotateX(90deg) translateY(370px) translateZ(350px) rotateZ(180deg);
+        }
+        .carousel-3d .cb3 {
+            transform: rotateZ(180deg) rotateX(90deg) translateY(120px) translateZ(349px);
+        }
+
+        .carousel-3d .c4 {
+            transform: rotateZ(270deg) rotateX(90deg) translateY(370px) translateZ(350px) rotateZ(180deg);
+        }
+        .carousel-3d .cb4 {
+            transform: rotateZ(270deg) rotateX(90deg) translateY(120px) translateZ(349px);
+        }
+
+        @keyframes rotate-3d {
+            to {
+                transform: perspective(1000px) rotateX(70deg) rotateZ(360deg);
+            }
+        }
+
+        @media screen and (max-width: 992px) {
+            .carousel-3d {
+                scale: 0.6;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -845,11 +953,34 @@
                         </div>
 
                         <h4 class="project-section-title">📸 Sample Output</h4>
-                            <!-- Screenshot of generated PDF -->
-                            <img src="img/GF/PDF_report.png"
-                                 alt="PDF report"
-                                 style="width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin: 1.5rem 0;"
-                                 onclick="window.open(this.src, '_blank')">
+                            <!-- Screenshots of generated PDF -->
+                            <div class="carousel-3d-container">
+                                <div class="carousel-3d">
+                                    <div class="card c1" onclick="window.open('img/GF/Congo_DR.png', '_blank')">
+                                        <div class="img" style="background-image: url('img/GF/Congo_DR.png')"></div>
+                                        <p>Congo (Democratic Republic)</p>
+                                    </div>
+                                    <div class="card-back cb1"></div>
+
+                                    <div class="card c2" onclick="window.open('img/GF/Ethiopia.png', '_blank')">
+                                        <div class="img" style="background-image: url('img/GF/Eswatini.png')"></div>
+                                        <p>Eswatini</p>
+                                    </div>
+                                    <div class="card-back cb2"></div>
+
+                                    <div class="card c3" onclick="window.open('img/GF/Eswatini.png', '_blank')">
+                                        <div class="img" style="background-image: url('img/GF/Ethiopia.png')"></div>
+                                        <p>Ethiopia</p>
+                                    </div>
+                                    <div class="card-back cb3"></div>
+
+                                    <div class="card c4" onclick="window.open('img/GF/Ghana.png', '_blank')">
+                                        <div class="img" style="background-image: url('img/GF/Ghana.png')"></div>
+                                        <p>Ghana</p>
+                                    </div>
+                                    <div class="card-back cb4"></div>
+                                </div>
+                            </div>
                     </div>
                 </div>
             </div>
@@ -896,7 +1027,7 @@
 
                         <h4 class="project-section-title">🎯 Technical Highlights</h4>
                         <p class="project-description">
-                            Built a production-ready web application combining machine learning capabilities with modern DevOps practices. The application features real-time image processing, containerized deployment for consistency across environments, and an intuitive user interface for non-technical users.
+                            Built a production-ready web application combining machine learning capabilities with modern DevOps practices. The application features real-time image processing, containerized deployment for consistency across environments and an intuitive user interface for non-technical users.
                         </p>
 
                         <h4 class="project-section-title">📈 Key Features</h4>
@@ -1405,7 +1536,9 @@
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+
+    <script>
         // Add smooth scroll behavior
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -1444,6 +1577,48 @@
             card.style.opacity = '0';
             observer.observe(card);
         });
+
+        // Image Carousel functionality
+        function initCarousel(carouselId) {
+            const carousel = document.getElementById(carouselId);
+            if (!carousel) return;
+
+            const images = carousel.querySelectorAll('.carousel-images img');
+            const indicators = carousel.querySelectorAll('.carousel-indicator');
+            const leftNav = carousel.querySelector('.carousel-nav.left');
+            const rightNav = carousel.querySelector('.carousel-nav.right');
+
+            let currentIndex = 0;
+
+            function showImage(index) {
+                images.forEach((img, i) => {
+                    img.classList.toggle('active', i === index);
+                });
+                indicators.forEach((dot, i) => {
+                    dot.classList.toggle('active', i === index);
+                });
+                currentIndex = index;
+            }
+
+            function nextImage() {
+                const newIndex = (currentIndex + 1) % images.length;
+                showImage(newIndex);
+            }
+
+            function prevImage() {
+                const newIndex = (currentIndex - 1 + images.length) % images.length;
+                showImage(newIndex);
+            }
+
+            leftNav.addEventListener('mouseenter', prevImage);
+            rightNav.addEventListener('mouseenter', nextImage);
+
+            indicators.forEach((dot, index) => {
+                dot.addEventListener('click', () => showImage(index));
+            });
+        }
+
+        initCarousel('pdf-carousel');
     </script>
 </body>
 </html>
