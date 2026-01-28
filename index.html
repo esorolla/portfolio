@@ -17,807 +17,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Work+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #1a1a2e;
-            --accent: #0f4c75;
-            --highlight: #3282b8;
-            --light: #bbe1fa;
-            --text: #2d3436;
-            --text-light: #636e72;
-            --bg: #ffffff;
-            --bg-alt: #f8f9fa;
-        }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <!-- CSS styles -->
+    <link rel="stylesheet" href="css/index.css">
 
-        body {
-            font-family: 'Work Sans', sans-serif;
-            line-height: 1.6;
-            color: var(--text);
-            background: var(--bg);
-            overflow-x: hidden;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Navigation */
-        nav {
-            background: var(--primary);
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        nav .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        nav .logo {
-            color: white;
-            font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
-            font-weight: 700;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-            margin: 0;
-        }
-
-        nav a {
-            color: var(--light);
-            text-decoration: none;
-            transition: color 0.3s;
-            font-weight: 400;
-        }
-
-        nav a:hover, nav a.active {
-            color: white;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-            color: white;
-            padding: 80px 20px 60px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background:
-                radial-gradient(circle at 20% 50%, rgba(187, 225, 250, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(50, 130, 184, 0.1) 0%, transparent 50%);
-            pointer-events: none;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            animation: fadeInUp 0.8s ease-out;
-        }
-
-        .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 8vw, 4.5rem);
-            font-weight: 900;
-            margin-bottom: 0.5rem;
-            letter-spacing: -0.02em;
-        }
-
-        .hero .tagline {
-            font-size: clamp(1.1rem, 3vw, 1.4rem);
-            font-weight: 300;
-            opacity: 0.95;
-            margin-bottom: 2rem;
-            letter-spacing: 0.02em;
-        }
-
-        .hero .contact-info {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            font-size: 0.95rem;
-            margin-top: 2rem;
-        }
-
-        .hero .contact-info a {
-            color: var(--light);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .hero .contact-info a:hover {
-            color: white;
-        }
-
-        /* Bio Section */
-        .bio-section {
-            padding: 60px 20px;
-            background: var(--bg-alt);
-        }
-
-        .bio-section h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2rem, 5vw, 2.8rem);
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-            animation: fadeInUp 0.8s ease-out 0.2s backwards;
-        }
-
-        .bio-content {
-            font-size: 1.05rem;
-            line-height: 1.8;
-            color: var(--text);
-            animation: fadeInUp 0.8s ease-out 0.3s backwards;
-        }
-
-        .bio-content p {
-            margin-bottom: 1.2rem;
-            text-align: justify;
-        }
-
-        /* Skills Section */
-        .skills-section {
-            padding: 60px 20px;
-            background: var(--bg);
-        }
-
-        .skills-section h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2rem, 5vw, 2.8rem);
-            color: var(--primary);
-            margin-bottom: 2rem;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
-
-        .skill-card {
-            background: var(--bg-alt);
-            padding: 25px;
-            border-radius: 8px;
-            border-left: 4px solid var(--highlight);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .skill-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        .skill-card h3 {
-            color: var(--accent);
-            margin-bottom: 0.8rem;
-            font-size: 1.2rem;
-        }
-
-        .skill-card p {
-            color: var(--text-light);
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        /* Projects Section */
-        .projects-section {
-            padding: 60px 20px;
-            background: var(--bg-alt);
-        }
-
-        .projects-section h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2rem, 5vw, 2.8rem);
-            color: var(--primary);
-            margin-bottom: 2rem;
-        }
-
-        .project-card {
-            background: white;
-            margin-bottom: 25px;
-            border-radius: 8px;
-            overflow: hidden;
-            border-left: 4px solid var(--highlight);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .project-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        .project-header {
-            padding: 30px;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: start;
-            gap: 20px;
-        }
-
-        .project-header-content {
-            flex: 1;
-        }
-
-        .project-header h3 {
-            color: var(--accent);
-            font-size: 1.4rem;
-            margin-bottom: 0.8rem;
-        }
-
-        .project-brief {
-            color: var(--text);
-            font-size: 1rem;
-            line-height: 1.6;
-            margin-bottom: 1rem;
-            text-align: justify;
-        }
-
-        .tech-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 1rem;
-        }
-
-        .tech-badge {
-            background: var(--primary);
-            color: white;
-            padding: 4px 12px;
-            border-radius: 4px;
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
-
-        .expand-icon {
-            color: var(--highlight);
-            font-size: 1.5rem;
-            transition: transform 0.3s;
-            flex-shrink: 0;
-        }
-
-        .project-card.expanded .expand-icon {
-            transform: rotate(180deg);
-        }
-
-        .project-details {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease-out;
-        }
-
-        .project-card.expanded .project-details {
-            max-height: 3000px;
-            transition: max-height 0.5s ease-in;
-        }
-
-        .project-details-content {
-            padding: 0 30px 30px;
-            border-top: 1px solid rgba(0,0,0,0.1);
-        }
-
-        .project-section-title {
-            color: var(--accent);
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin: 1rem 0 0.5rem;
-        }
-
-        .project-image-placeholder {
-            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
-            border: 2px dashed var(--highlight);
-            border-radius: 8px;
-            padding: 60px 20px;
-            text-align: center;
-            margin: 1.5rem 0;
-            color: var(--text-light);
-        }
-
-        .project-image-placeholder img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 4px;
-        }
-
-        .metrics-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin: 1.5rem 0;
-        }
-
-        .metric-card {
-            background: var(--bg-alt);
-            padding: 20px;
-            border-radius: 6px;
-            text-align: center;
-            border: 2px solid var(--light);
-        }
-
-        .metric-value {
-            color: var(--highlight);
-            font-size: 1.8rem;
-            font-weight: 700;
-            display: block;
-            margin-bottom: 0.3rem;
-        }
-
-        .metric-label {
-            color: var(--text-light);
-            font-size: 0.9rem;
-        }
-
-        .project-description {
-            color: var(--text);
-            line-height: 1.7;
-            margin: 1rem 0;
-            text-align: justify;
-        }
-
-        .code-snippet {
-            background: #2d2d2d;
-            color: #f8f8f2;
-            padding: 20px;
-            border-radius: 6px;
-            overflow-x: auto;
-            font-family: 'Courier New', monospace;
-            font-size: 0.9rem;
-            margin: 1rem 0;
-            line-height: 1.5;
-        }
-
-        /* Experience Section */
-        .experience-section {
-            padding: 60px 20px;
-            background: var(--bg-alt);
-        }
-
-        .experience-section h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2rem, 5vw, 2.8rem);
-            color: var(--primary);
-            margin-bottom: 2rem;
-        }
-
-        .experience-item {
-            background: white;
-            padding: 30px;
-            margin-bottom: 25px;
-            border-radius: 8px;
-            border-left: 4px solid var(--highlight);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .experience-item:hover {
-            transform: translateX(5px);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-        }
-
-        .experience-item h3 {
-            color: var(--accent);
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .experience-item .role-company {
-            color: var(--text);
-            font-weight: 600;
-            margin-bottom: 0.3rem;
-        }
-
-        .experience-item .period {
-            color: var(--text-light);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-
-        .experience-item ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .experience-item li {
-            padding-left: 1.5rem;
-            margin-bottom: 0.5rem;
-            position: relative;
-            color: var(--text);
-            font-size: 0.95rem;
-        }
-
-        .experience-item li::before {
-            content: '▸';
-            position: absolute;
-            left: 0;
-            color: var(--highlight);
-        }
-
-        /* Education Section */
-        .education-section {
-            padding: 60px 20px;
-            background: var(--bg);
-        }
-
-        .education-section h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2rem, 5vw, 2.8rem);
-            color: var(--primary);
-            margin-bottom: 2rem;
-        }
-
-        .education-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
-
-        .education-card {
-            background: var(--bg-alt);
-            padding: 25px;
-            border-radius: 8px;
-            border-top: 4px solid var(--accent);
-        }
-
-        .education-card h3 {
-            color: var(--accent);
-            margin-bottom: 0.5rem;
-            font-size: 1.2rem;
-        }
-
-        .education-card p {
-            color: var(--text-light);
-            font-size: 0.95rem;
-        }
-
-        /* Courses & Certifications Section */
-        .courses-section {
-            padding: 60px 20px;
-            background: var(--bg-alt);
-        }
-
-        .courses-section h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2rem, 5vw, 2.8rem);
-            color: var(--primary);
-            margin-bottom: 2rem;
-        }
-
-        .courses-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
-
-        .course-card {
-            background: white;
-            padding: 25px;
-            border-radius: 8px;
-            border-left: 4px solid var(--highlight);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .course-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        .course-card h3 {
-            color: var(--accent);
-            margin-bottom: 0.5rem;
-            font-size: 1.15rem;
-        }
-
-        .course-card .institution {
-            color: var(--text);
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            font-size: 0.95rem;
-        }
-
-        .course-card .period {
-            color: var(--text-light);
-            font-size: 0.85rem;
-        }
-
-        .certifications-intro {
-            background: linear-gradient(135deg, var(--accent) 0%, var(--highlight) 100%);
-            color: white;
-            padding: 30px;
-            border-radius: 8px;
-            margin-bottom: 3rem;
-            text-align: center;
-        }
-
-        .certifications-intro h3 {
-            color: white;
-            margin-bottom: 1rem;
-            font-size: 1.4rem;
-        }
-
-        .certifications-intro p {
-            color: rgba(255,255,255,0.95);
-            line-height: 1.7;
-        }
-
-        /* Volunteer Section */
-        .volunteer-section {
-            padding: 60px 20px;
-            background: var(--bg);
-        }
-
-        .volunteer-section h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2rem, 5vw, 2.8rem);
-            color: var(--primary);
-            margin-bottom: 2rem;
-        }
-
-        .volunteer-card {
-            background: var(--bg-alt);
-            padding: 30px;
-            border-radius: 8px;
-            border-left: 4px solid var(--highlight);
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .volunteer-card h3 {
-            color: var(--accent);
-            font-size: 1.4rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .volunteer-card .organization {
-            color: var(--text);
-            font-weight: 600;
-            margin-bottom: 0.3rem;
-        }
-
-        .volunteer-card .period {
-            color: var(--text-light);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-
-        .volunteer-card p {
-            color: var(--text);
-            line-height: 1.7;
-        }
-
-        /* Links Section */
-        .links-section {
-            padding: 60px 20px;
-            background: var(--primary);
-            color: white;
-        }
-
-        .links-section h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2rem, 5vw, 2.8rem);
-            margin-bottom: 2rem;
-            color: white;
-        }
-
-        .links-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .link-card {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 25px;
-            border-radius: 8px;
-            text-decoration: none;
-            color: white;
-            transition: all 0.3s;
-            border: 2px solid transparent;
-        }
-
-        .link-card:hover {
-            background: rgba(255, 255, 255, 0.15);
-            border-color: var(--light);
-            transform: translateY(-3px);
-        }
-
-        .link-card h3 {
-            margin-bottom: 0.5rem;
-            font-size: 1.2rem;
-        }
-
-        .link-card p {
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-
-        /* Footer */
-        .footer {
-            background: var(--primary);
-            color: var(--light);
-            text-align: center;
-            padding: 30px 20px;
-            font-size: 0.9rem;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            nav ul {
-                gap: 1rem;
-                font-size: 0.9rem;
-            }
-
-            nav .logo {
-                font-size: 1.1rem;
-            }
-
-            .hero {
-                padding: 60px 20px 40px;
-            }
-
-            .bio-section,
-            .skills-section,
-            .experience-section,
-            .education-section,
-            .links-section {
-                padding: 40px 20px;
-            }
-
-            .experience-item {
-                padding: 20px;
-            }
-        }
-
-        /* Print styles */
-        @media print {
-            .hero {
-                background: var(--primary);
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-        }
-
-        /* Image Carousel */
-        /* 3D Carousel */
-        .carousel-3d-container {
-            display: grid;
-            place-items: center;
-            height: 500px;
-            position: relative;
-            margin: 0rem 0;
-            background-image: radial-gradient(circle at 50% 50%, #f8f9fa 30%, transparent 40%);
-            overflow: hidden;
-        }
-
-        .carousel-3d {
-            transform: perspective(1000px) rotateX(70deg);
-            transform-style: preserve-3d;
-            display: grid;
-            position: absolute;
-            place-items: center;
-            animation: rotate-3d 30s linear infinite;
-            transition: all 1s;
-        }
-
-        .carousel-3d:hover {
-            animation-play-state: paused;
-        }
-
-        .carousel-3d .card-back {
-            display: grid;
-            place-items: center;
-            width: 450px;
-            height: 320px;
-            background-color: #ddd;
-            position: absolute;
-            border-radius: 8px;
-        }
-
-        .carousel-3d .card {
-            display: grid;
-            place-items: center;
-            width: 450px;
-            height: 0px;
-            background-color: #ddd;
-            position: absolute;
-            box-shadow: 0 0 30px rgba(0,0,0,0.3);
-            border-radius: 8px;
-            cursor: pointer;
-        }
-
-        .carousel-3d .card .img {
-            width: 300px;
-            height: 300px;
-            border-radius: 5px;
-            background-size: contain;
-            background-position: center;
-            background-repeat: no-repeat;
-            filter: brightness(0.95);
-            transform: translateY(100px) scale(1.5);
-        }
-
-        .carousel-3d .card p {
-            font-size: 14px;
-            color: var(--text-light);
-            margin-top: 10px;
-            text-align: center;
-        }
-
-        /* Position cards in circle - 4 cards */
-        .carousel-3d .c1 {
-            transform: rotateZ(0deg) rotateX(90deg) translateY(370px) translateZ(350px) rotateZ(180deg);
-        }
-        .carousel-3d .cb1 {
-            transform: rotateZ(0deg) rotateX(90deg) translateY(120px) translateZ(349px);
-        }
-
-        .carousel-3d .c2 {
-            transform: rotateZ(90deg) rotateX(90deg) translateY(370px) translateZ(350px) rotateZ(180deg);
-        }
-        .carousel-3d .cb2 {
-            transform: rotateZ(90deg) rotateX(90deg) translateY(120px) translateZ(349px);
-        }
-
-        .carousel-3d .c3 {
-            transform: rotateZ(180deg) rotateX(90deg) translateY(370px) translateZ(350px) rotateZ(180deg);
-        }
-        .carousel-3d .cb3 {
-            transform: rotateZ(180deg) rotateX(90deg) translateY(120px) translateZ(349px);
-        }
-
-        .carousel-3d .c4 {
-            transform: rotateZ(270deg) rotateX(90deg) translateY(370px) translateZ(350px) rotateZ(180deg);
-        }
-        .carousel-3d .cb4 {
-            transform: rotateZ(270deg) rotateX(90deg) translateY(120px) translateZ(349px);
-        }
-
-        @keyframes rotate-3d {
-            to {
-                transform: perspective(1000px) rotateX(70deg) rotateZ(360deg);
-            }
-        }
-
-        @media screen and (max-width: 992px) {
-            .carousel-3d {
-                scale: 0.6;
-            }
-        }
-
-    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -858,8 +61,9 @@
         <div class="container">
             <h2>About Me</h2>
             <div class="bio-content">
-                <p>I am a Data Engineer with a background of over 10 years of experience designing and implementing software to predict and analyze complex multi-physics phenomena. After completing my PhD at EPFL in Electrical Engineering developing simulation software for space satellites and particle accelerators (in C, C++, and Fortran) I spent four years working on CNES-funded projects in France. I pivoted in 2020 to focus my technical skills on data engineering with a particular emphasis on healthcare applications.</p>
+                <p>I am a Data Engineer with over 10 years of experience in designing and implementing software to predict and analyze complex multi-physics phenomena. After completing my PhD at EPFL in Electrical Engineering developing simulation software for space satellites and particle accelerators (in C, C++, and Fortran) I spent four years working on CNES-funded projects in France. I pivoted in 2020 to focus my technical skills on data engineering with a particular emphasis on healthcare applications.</p>
 
+                <p>Since then, I have contributed to several initiatives delivering digital solutions that help business analysts and researchers make better decisions by improving the quality, reliability, and availability of their data. I design and implement automated pipelines to extract, transform, and deliver data—turning raw information into something people can actually trust and use.</p>
                 <p>Since then, I have contributed to several initiatives delivering digital solutions that help business analysts and researchers make better decisions by improving the quality, reliability, and availability of their data. I design and implement automated pipelines to extract, transform, and deliver data—turning raw information into something people can actually trust and use.</p>
 
                 <p>Throughout my career, I've developed a holistic approach to data engineering that bridges technical implementation with domain expertise. Whether reverse-engineering complex clinical databases, implementing statistical validations, or architecting scalable pipelines, I believe the most impactful solutions come from understanding the full data lifecycle—from source systems to stakeholder insights. In healthcare particularly, this end-to-end perspective ensures we build solutions that are not just technically sound, but genuinely serve clinical and research needs.</p>
@@ -904,6 +108,7 @@
     <section class="projects-section">
         <div class="container">
             <h2>Featured Projects</h2>
+            <p>Click on the cards to display the details...</p>
 
             <!-- Project 1: PDF Automation -->
             <div class="project-card">
@@ -923,18 +128,19 @@
                 </div>
                 <div class="project-details">
                     <div class="project-details-content">
+
+                        <h4 class="project-section-title">🎯 Problem & Solution</h4>
+                        <p class="project-description">
+                            <strong>Problem:</strong> The Global Fund's Health Finance team needed to manually generate Qualitative Adjustment assessment reports for grant-eligible countries fighting HIV, Tuberculosis, and Malaria. With more than 10 health finance specialists continuously updating an Airtable database in real-time, monitoring about 100 countries, the team spent 20+ hours per week manually extracting, processing and delivering up-to-date reports—a process that was both time-intensive and prone to inconsistencies.<br><br>
+                            <strong>Solution:</strong> Developed an automated pipeline that integrates with Airtable webhooks to capture real-time data updates, dynamically generates formatted PDF reports with current database content, and automatically distributes them to SharePoint for immediate access by the Health Finance department leadership. The solution eliminated manual compilation while ensuring report accuracy and availability.
+                        </p>
+
                         <h4 class="project-section-title">📊 Architecture Diagram</h4>
                             <!-- The PDF report architecture schema -->
                             <img src="img/schemas/PDF_report_schema.png"
                                  alt="PDF architecture schema"
                                  style="width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin: 1.5rem 0;"
                                  onclick="window.open(this.src, '_blank')">
-
-                        <h4 class="project-section-title">🎯 Problem & Solution</h4>
-                        <p class="project-description">
-                            <strong>Problem:</strong> The Global Fund's Health Finance team needed to manually generate Qualitative Adjustment assessment reports for grant-eligible countries fighting HIV, Tuberculosis, and Malaria. With over 10 health finance specialists continuously updating an Airtable database in real-time, the team spent 20+ hours per week manually compiling and formatting reports—a process that was both time-intensive and prone to inconsistencies.<br><br>
-                            <strong>Solution:</strong> Developed an automated pipeline that integrates with Airtable webhooks to capture real-time data updates, dynamically generates formatted PDF reports with current database content, and automatically distributes them to SharePoint for immediate access by the Health Finance department leadership. The solution eliminated manual compilation while ensuring report accuracy and availability.
-                        </p>
 
                         <h4 class="project-section-title">📈 Impact & Metrics</h4>
                         <div class="metrics-grid">
@@ -963,13 +169,13 @@
                                     <div class="card-back cb1"></div>
 
                                     <div class="card c2" onclick="window.open('img/GF/Ethiopia.png', '_blank')">
-                                        <div class="img" style="background-image: url('img/GF/Eswatini.png')"></div>
+                                        <div class="img" style="background-image: url('img/GF/Ethiopia.png')"></div>
                                         <p>Eswatini</p>
                                     </div>
                                     <div class="card-back cb2"></div>
 
                                     <div class="card c3" onclick="window.open('img/GF/Eswatini.png', '_blank')">
-                                        <div class="img" style="background-image: url('img/GF/Ethiopia.png')"></div>
+                                        <div class="img" style="background-image: url('img/GF/Eswatini.png')"></div>
                                         <p>Ethiopia</p>
                                     </div>
                                     <div class="card-back cb3"></div>
@@ -979,6 +185,12 @@
                                         <p>Ghana</p>
                                     </div>
                                     <div class="card-back cb4"></div>
+
+                                    <div class="card c5" onclick="window.open('img/GF/health_risk_world.png', '_blank')">
+                                        <div class="img" style="background-image: url('img/GF/health_risk_world.png')"></div>
+                                        <p>Health Risk World</p>
+                                    </div>
+                                    <div class="card-back cb5"></div>
                                 </div>
                             </div>
                     </div>
@@ -1004,20 +216,6 @@
                 </div>
                 <div class="project-details">
                     <div class="project-details-content">
-                        <h4 class="project-section-title">🖼️ Application Screenshot</h4>
-                        <a href="https://shiny-app-151314882530.europe-west6.run.app/" style="display: block; cursor: pointer;">
-                            <!-- Screenshot of the Web App -->
-                            <img src="img/personal/ImageRecognition_sc.png"
-                                 alt="Screenshot of the R Shiny App"
-                                 style="width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin: 1rem 0;
-                                 transition: transform 0.3s;"
-                                 onmouseover="this.style.transform='scale(1.02)'"
-                                 onmouseout="this.style.transform='scale(1)'">
-                        </a>
-
-                        <p style="text-align: center; color: #636e72; font-size: 0.9rem; margin-top: -1rem;">
-                            📖 Click screenshot to go to Web App in live →
-                        </p>
 
                         <h4 class="project-section-title">🏗️ Deployment Architecture</h4>
                             <img src="img/schemas/ImageRecognition_schema.png"
@@ -1045,6 +243,23 @@
                                 <span class="metric-label">Web Interface</span>
                             </div>
                         </div>
+
+                        <h4 class="project-section-title">🖼️ Application Screenshot</h4>
+                        <a href="https://shiny-app-151314882530.europe-west6.run.app/"
+                           style="display: block; cursor: pointer;"
+                           target="_blank">
+                            <!-- Screenshot of the Web App -->
+                            <img src="img/personal/ImageRecognition_sc.png"
+                                 alt="Screenshot of the R Shiny App"
+                                 style="width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin: 1rem 0;
+                                 transition: transform 0.3s;"
+                                 onmouseover="this.style.transform='scale(1.02)'"
+                                 onmouseout="this.style.transform='scale(1)'">
+                        </a>
+
+                        <p style="text-align: center; color: #636e72; font-size: 0.9rem; margin-top: -1rem;">
+                            📖 Click screenshot to go to Web App in live →
+                        </p>
 
                         <h4 class="project-section-title">🔗 GitHub Repository</h4>
                         <p class="project-description">
@@ -1074,6 +289,13 @@
                 </div>
                 <div class="project-details">
                     <div class="project-details-content">
+
+                        <h4 class="project-section-title">🎯 Challenge & Approach</h4>
+                        <p class="project-description">
+                            <strong>Challenge:</strong> Inherited an undocumented PostgreSQL database with 30+ tables containing critical clinical research data. No data dictionary, no documentation, no clear understanding of relationships.<br><br>
+                            <strong>Approach:</strong> Developed advanced SQL scripts to systematically analyze table structures, foreign key relationships, data patterns, and usage statistics. Created automated documentation and visual schema representations.
+                        </p>
+
                         <h4 class="project-section-title">📊 Database Schema Mapping</h4>
                         <a href="clinical_db_detail.html" style="display: block; cursor: pointer;">
                             <img src="img/schemas/Clinical_db_schema.svg"
@@ -1084,12 +306,6 @@
                         </a>
                         <p style="text-align: center; color: #636e72; font-size: 0.9rem; margin-top: -1rem;">
                             📖 Click schema to view detailed technical documentation →
-                        </p>
-
-                        <h4 class="project-section-title">🎯 Challenge & Approach</h4>
-                        <p class="project-description">
-                            <strong>Challenge:</strong> Inherited an undocumented PostgreSQL database with 30+ tables containing critical clinical research data. No data dictionary, no documentation, no clear understanding of relationships.<br><br>
-                            <strong>Approach:</strong> Developed advanced SQL scripts to systematically analyze table structures, foreign key relationships, data patterns, and usage statistics. Created automated documentation and visual schema representations.
                         </p>
 
                         <h4 class="project-section-title">📈 Results & Impact</h4>
@@ -1103,8 +319,8 @@
                                 <span class="metric-label">Data Discovery Increase</span>
                             </div>
                             <div class="metric-card">
-                                <span class="metric-value">Complete</span>
-                                <span class="metric-label">Documentation Generated</span>
+                                <span class="metric-value">Hours → Seconds</span>
+                                <span class="metric-label">Search Time Reduction</span>
                             </div>
                         </div>
 
@@ -1142,22 +358,18 @@
                 </div>
                 <div class="project-details">
                     <div class="project-details-content">
-                        <h4 class="project-section-title">📊 Dashboard Screenshots</h4>
-                            <img src="img/GM/PDT_screenshot.png"
-                                 alt="Healthcare Data Analystics Dashboard screenshot"
-                                 style="width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin: 1.5rem 0;"
-                                 onclick="window.open(this.src, '_blank')">
-
-                        <h4 class="project-section-title">🏗️ Data Pipeline Architecture</h4>
-                        <img src="img/schemas/healthcare_dashboard_architecture.svg"
-                             alt="Healthcare Analytics Dashboard Architecture"
-                             style="width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin: 1.5rem 0;">
 
                         <h4 class="project-section-title">🎯 Business Impact</h4>
                         <p class="project-description">
                             <strong>Context:</strong> Business analysts at Groupe Mutuel needed real-time access to the health pathways of customers to analyze both the prevalence and chronological order of clinical interventions from the pool of customers' data.<br><br>
-                            <strong>Solution:</strong> Built a scalable web application that processes millions of records using PySpark, presents aggregated customers' data visualizations through Dash, and replaced manual Excel-based reporting workflows to facilitate real-time analysis.
+                            <strong>Solution:</strong> Built a scalable web application that processes millions of records using PySpark, presents the health pathway of customers in form of a Sankey diagram over a Web Application accessible to Business Analysts. The tool is constructed with the help of Dash-Plotly-a Python library based in React to build custom professional dashboards- and Bootstrap components, the world's most popular framework for building responsive, mobile-first sites. This replaced manual Excel-based reporting workflows increasing the availability and the accuracy of data for real-time analysis.
                         </p>
+
+                        <h4 class="project-section-title">🏗️ Data Pipeline Architecture</h4>
+                        <img src="img/schemas/healthcare_dashboard_architecture.svg"
+                             alt="Healthcare Analytics Dashboard Architecture"
+                             style="width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin: 1.5rem 0;"
+                             onclick="window.open(this.src, '_blank')">
 
                         <h4 class="project-section-title">📈 Performance & Scale</h4>
                         <div class="metrics-grid">
@@ -1174,6 +386,13 @@
                                 <span class="metric-label">Excel Reports Replaced</span>
                             </div>
                         </div>
+
+                        <h4 class="project-section-title">📊 Dashboard Screenshot</h4>
+                            <img src="img/GM/PDT_screenshot.png"
+                                 alt="Healthcare Data Analystics Dashboard screenshot"
+                                 style="width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin: 1.5rem 0;"
+                                 onclick="window.open(this.src, '_blank')">
+
                     </div>
                 </div>
             </div>
@@ -1196,17 +415,18 @@
                 </div>
                 <div class="project-details">
                     <div class="project-details-content">
-                        <h4 class="project-section-title">🏗️ System Architecture</h4>
-                        <img src="img/schemas/sbb_monitor_architecture.svg"
-                             alt="SBB Traffic Monitor Architecture"
-                             style="width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin: 1.5rem 0;"
-                             onclick="window.open(this.src, '_blank')">
 
                         <h4 class="project-section-title">🎯 Problem & Solution</h4>
                         <p class="project-description">
                             <strong>Problem:</strong> Need for real-time awareness of Swiss railway disruptions affecting daily commute in the French part of Switzerland, without manually checking the SBB website multiple times per day.<br><br>
                             <strong>Solution:</strong> Built an automated Python script that queries the SBB GraphQL API, tracks changes between runs using JSON state management and sends HTML email notifications only when new disruptions occur or existing ones are resolved. Deployed on PythonAnywhere with scheduled execution one hour before planned trips to anticipate issues.
                         </p>
+
+                        <h4 class="project-section-title">🏗️ System Architecture</h4>
+                        <img src="img/schemas/sbb_monitor_architecture.svg"
+                             alt="SBB Traffic Monitor Architecture"
+                             style="height: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin: 1.5rem 0;"
+                             onclick="window.open(this.src, '_blank')">
 
                         <h4 class="project-section-title">📈 Technical Highlights</h4>
                         <div class="metrics-grid">
@@ -1223,6 +443,12 @@
                                 <span class="metric-label">Change Detection</span>
                             </div>
                         </div>
+
+                        <h4 class="project-section-title">📊 Screenshots of the tool </h4>
+                            <img src="img/personal/SBB_traffic_monitor_sc_multi.png"
+                                 alt="SBB Traffic Monitor Tool screenshot"
+                                 style="width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin: 1.5rem 0;"
+                                 onclick="window.open(this.src, '_blank')">
 
                         <h4 class="project-section-title">🔗 GitHub Repository</h4>
                         <p class="project-description">
