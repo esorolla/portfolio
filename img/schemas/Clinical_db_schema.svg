@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 950" style="background-color: #f8f9fa;">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 970" style="background-color: #f8f9fa;">
   <defs>
     <!-- Gradient definitions -->
     <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -237,7 +237,7 @@
   </g>
 
   <!-- Note about German terms -->
-  <text x="600" y="945" font-family="Work Sans, sans-serif" font-size="10" fill="#636e72" text-anchor="middle" font-style="italic">
+  <text x="600" y="960" font-family="Work Sans, sans-serif" font-size="10" fill="#636e72" text-anchor="middle" font-style="italic">
     UKBB (Universitätsspital Basel) uses German medical terminology
   </text>
 </svg>

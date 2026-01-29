@@ -59,14 +59,14 @@
             <h2>🎯 Key Innovation</h2>
 
             <div class="warning-box">
-                <strong>The Challenge:</strong> The PostgreSQL database, containing critical clinical research data across 30+ tables with complex nested JSON objects was completely undocumented. Researchers knew the keywords to extract the relevant data, but had no idea where in the complex nested JSON structures it was stored. Running a simple script across all the records a specific patient searching for a specific keyword took several hours.
+                <strong>The Challenge:</strong> The PostgreSQL database, containing critical clinical research data across 30+ tables with complex nested JSON objects was completely undocumented. Researchers knew the keywords to extract the relevant data, but had no idea where in the complex nested JSON structures it was stored. Running a simple script searching for a specific keyword across all the records of the database took several hours or even days.
                 <br><br>
-                <strong>The Solution:</strong> Rather than manually exploring 30+ tables, we implemented a recursive solution with the help of 2 advanced PostgreSQL functions performing automated discovery—scanning all records of a certain patient, traversing unknown JSON hierarchies, and revealing:
+                <strong>The Solution:</strong> Rather than manually exploring all the records across 30+ tables, we implemented a recursive solution with two advanced PostgreSQL functions performing automated discovery—scanning all records of the target column, traversing unknown JSON hierarchies, and revealing:
                 <ul style="margin-top: 0.5rem;">
                     <li><strong>WHO</strong> has the data (patient/case identifiers)</li>
                     <li><strong>WHERE</strong> it's located (complete JSON key paths)</li>
                 </ul>
-                This transforms an undocumented database into a fully searchable and queryable research resource, with the JSON paths
+                This helped transform an undocumented database into a fully searchable and queryable research resource, with the JSON paths
                 serving as a schema map for future data extraction.
             </div>
         </section>
@@ -76,8 +76,7 @@
             <h2>💻 Two-Function Architecture</h2>
 
             <p class="project-description">
-                The solution consists of two PostgreSQL functions working together in a recursive workflow to discover <strong>which patients</strong>
-                have matching data and <strong>where in the JSON structure</strong> it's located—returning a three-part result:
+                The solution consists of two advanced PostgreSQL functions working together in a recursive workflow to discover <strong>which patients</strong> have matching data in the corresponding column and <strong>where in the JSON structure</strong> it's located—returning a three-part result:
                 patient number (patnr), case number (fallnr), and JSON key path.
             </p>
 
@@ -85,7 +84,7 @@
             <div style="margin-bottom: 2rem;">
                 <h3>1️⃣ Main Wrapper: <code style="background: #f0f0f0; padding: 3px 8px; border-radius: 3px; color: #0f4c75;">find_jsonb_string_path</code></h3>
                 <p class="project-description">
-                    Scans all records in the database table, calls the recursive function on the JSONB column with the clinically relevant data, and returns a three-part tuple for every match: (patient_id, case_id, json_path).
+                    Scans all records from the corresponding table, calls the recursive function on the JSONB column ("content") with the clinically relevant data, and returns a three-part tuple for every match: (patient_id, case_id, json_path).
                 </p>
 
                 <pre><code><span style="color: #569cd6;">CREATE OR REPLACE FUNCTION</span> find_jsonb_string_path(
@@ -108,7 +107,7 @@
         )
     <span style="color: #569cd6;">LOOP</span>
         <span style="color: #569cd6;">BEGIN</span>
-            <span style="color: #6a9955;">-- Call recursive function to search within JSON</span>
+            <span style="color: #6a9955;">-- Call recursive function to search within JSONB</span>
             json_path := find_in_jsonb(rec.content, search_string, <span style="color: #ce9178;">''</span>);
 
             <span style="color: #569cd6;">IF</span> json_path <span style="color: #569cd6;">IS NOT NULL THEN</span>
@@ -129,7 +128,7 @@ $$;</code></pre>
                 <h3>2️⃣ Recursive Core: <code style="background: #f0f0f0; padding: 3px 8px; border-radius: 3px; color: #0f4c75;">find_in_jsonb</code></h3>
                 <p class="project-description">
                     Recursively traverses JSON objects and arrays of unknown structure, building the key path as it searches
-                    for matching strings within the complex JSON structure of objects stored in the "content" column and returning the complete path when found a match.
+                    for matching strings within the complex JSON structure of objects stored in the "content" column. The recursive function returns the complete JSON path when found a match together with both the patient and the case IDs.
                 </p>
 
                 <pre><code><span style="color: #569cd6;">CREATE OR REPLACE FUNCTION</span> find_in_jsonb(
@@ -145,7 +144,7 @@ $$;</code></pre>
             <span style="color: #569cd6;">IF</span> result <span style="color: #569cd6;">IS NOT NULL THEN RETURN</span> result; <span style="color: #569cd6;">END IF</span>;
         <span style="color: #569cd6;">END LOOP</span>;
 
-    <span style="color: #6a9955;">-- Handle JSON arrays</span>
+    <span style="color: #6a9955;">-- Handle JSONB arrays</span>
     <span style="color: #569cd6;">ELSIF</span> jsonb_typeof(json_value) = <span style="color: #ce9178;">'array'</span> <span style="color: #569cd6;">THEN</span>
         <span style="color: #569cd6;">FOR</span> idx <span style="color: #569cd6;">IN</span> <span style="color: #b5cea8;">0</span>..(jsonb_array_length(json_value) - <span style="color: #b5cea8;">1</span>) <span style="color: #569cd6;">LOOP</span>
             result := find_in_jsonb(json_value->idx, search_string, current_path || <span style="color: #ce9178;">'['</span> || idx || <span style="color: #ce9178;">']'</span>);
@@ -169,8 +168,8 @@ $$ <span style="color: #569cd6;">LANGUAGE</span> plpgsql;</code></pre>
                 <h4 style="color: var(--accent); margin-top: 0;">🔄 How They Work Together</h4>
                 <ol>
                     <li><strong>Physician's question:</strong> Example: "Which patients have mechanical ventilation documented?"</li>
-                    <li><strong>Main function</strong> scans through all records, extracting JSONB columns.</li>
-                    <li><strong>For each record,</strong> the recursive function traverses the "content" column (of JSON type):
+                    <li><strong>Main function</strong> scans through all records, extracting data from the relevant JSONB column.</li>
+                    <li><strong>For each record,</strong> the recursive function traverses the "content" column (of JSONB type):
                         <ul>
                             <li>Objects → recurse into key-value pairs, building paths like <code style="color: #000000;">.procedures.ventilation</code></li>
                             <li>Arrays → recurse into elements, building paths like <code style="color: #000000;">.items[0].name</code></li>
@@ -244,7 +243,7 @@ $$ <span style="color: #569cd6;">LANGUAGE</span> plpgsql;</code></pre>
 
             <h4>Key Technical Features</h4>
             <ul>
-                <li><strong>Recursive Algorithm:</strong> Handles arbitrary JSON nesting depth.</li>
+                <li><strong>Recursive Algorithm:</strong> Handles arbitrary JSONB nesting depth.</li>
                 <li><strong>Type-Safe Traversal:</strong> Correctly handles objects, arrays, strings, numbers, booleans, and nulls.</li>
                 <li><strong>Dynamic SQL:</strong> Parameterized queries prevent SQL injection.</li>
                 <li><strong>Path Construction:</strong> Builds readable JSON paths (e.g., <code style="color: #000000;">.procedures[0].ventilation.mode</code>)</li>
